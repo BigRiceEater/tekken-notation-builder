@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { purple, grey } from "@ant-design/colors";
 
+import ComboSeperator from "./combo-seperator";
+
 
 const VisualizeCommand = ({ data }) => {
   const [commands, setCommands] = useState([]);
@@ -42,6 +44,9 @@ const VisualizeCommand = ({ data }) => {
           switch (command) {
             case "qcf":
               return SP_CMD.qcf.map(c => renderCommand(c))
+            break;
+            case ">":
+              return <ComboSeperator/>
             break;
             default:
               return renderCommand(command);
