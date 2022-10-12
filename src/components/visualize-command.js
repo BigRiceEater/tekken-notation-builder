@@ -11,8 +11,10 @@ const VisualizeCommand = ({ data }) => {
   function sanitizeCommand(cmdStr){
     // remove all spaces
     const dataNoSpaces = data.replace(/\s/g, "");
-    // split into array by . , and > but the problem is > is also a pseudo command
-    const splitCommands = dataNoSpaces.split(/[\.,>]+/);
+    // artificially add the limit symbol for pseudo command so we can split properly without user writing this themselves
+    const addLimiterForAngleSymbol = dataNoSpaces.replace('>', ",>,");
+    // split into array by . and , because '>' is actually a pseudo command
+    const splitCommands = addLimiterForAngleSymbol.split(/[\.,]+/);
     // remove all empty elements
     const sanitizedCommands = splitCommands.filter((c) => c);
 
