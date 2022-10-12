@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { purple, grey } from '@ant-design/colors'
 
-const COMMAND = {
-  back: "b",
-  forward: "f",
-  down: "d",
-  downforward: "df",
-  downback: "db",
-  1: "1",
-  2: "2",
-  3: "3",
-  4: "4",
-};
-
 const VisualizeCommand = ({ data }) => {
   const [commands, setCommands] = useState([]);
 
