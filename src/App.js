@@ -21,12 +21,10 @@ function App() {
   return (
     <Layout style={{height:"100vh", padding: 24}}>
       <Content>
-        <Row>
+        <Row gutter={[16,16]}>
           <Col span={16} offset={4}>
             <CommandInput onClick={handleVisualizeCommandClicked}/>
           </Col>
-        </Row>
-        <Row>
           <Col span={16} offset={4}>
             <VisualizeCommand data={commandString} />
           </Col>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { purple, grey } from '@ant-design/colors'
 
 const COMMAND = {
   back: "b",
@@ -27,7 +28,7 @@ const VisualizeCommand = ({ data }) => {
   return (
     <div style={styles.container}>
       {commands.map((command) => (
-        <img src={require(`../assets/${command}.svg`)} />
+        <img style={styles.command} src={require(`../assets/${command}.svg`)} />
       ))}
     </div>
   );
@@ -36,7 +37,15 @@ const VisualizeCommand = ({ data }) => {
 const styles = {
   container: {
     display: "flex",
+    padding : 16,
+    minHeight : 88,
+    background: grey[2],
+    borderRadius : 8,
+    border: `2px solid ${purple}`
   },
+  command: {
+    width: 32
+  }
 };
 
 export default VisualizeCommand;
