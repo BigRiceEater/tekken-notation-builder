@@ -4,6 +4,7 @@ import "./App.css";
 import CommandInput from "./components/command-input";
 import VisualizeCommand from "./components/visualize-command";
 import Controls from "./components/controls";
+import Section from "./layout/section";
 import { Layout, Row, Col } from "antd";
 
 const { Content } = Layout;
@@ -28,15 +29,15 @@ function App() {
     <Layout style={{ height: "100vh", padding: 24 }}>
       <Content>
         <Row gutter={[16, 16]}>
-          <Col span={16} offset={4}>
+          <Section>
             <CommandInput onClick={handleVisualizeCommandClicked} />
-          </Col>
-          <Col span={16} offset={4}>
+          </Section>
+          <Section>
             <VisualizeCommand data={commandString} options={controlConfig}/>
-          </Col>
-          <Col span={16} offset={4}>
+          </Section>
+          <Section>
             <Controls data={controlConfig} onChange={handleControlChanged} />
-          </Col>
+          </Section>
         </Row>
       </Content>
     </Layout>
