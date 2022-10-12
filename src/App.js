@@ -27,7 +27,8 @@ function App() {
   }
 
   return (
-    <Layout style={{ height: "100vh", padding: 24 }}>
+     // T R B L
+    <Layout style={styles.container}>
       <Content>
         <Row justify="center" gutter={[16, 16]}>
           <Section>
@@ -46,6 +47,16 @@ function App() {
       </Footer>
     </Layout>
   );
+}
+
+const styles = {
+  container : {
+    height:"100vh",
+    paddingTop: 24,
+    paddingBottom : 0,
+    paddingLeft: 24,
+    paddingRight: 24
+  }
 }
 
 export default App;
