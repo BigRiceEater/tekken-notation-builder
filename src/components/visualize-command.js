@@ -18,7 +18,6 @@ const VisualizeCommand = ({ data, options = {} }) => {
   }, [data]);
 
   const renderCommand = (cmd) => {
-    console.log("render", cmd);
     return (
       <img
         style={{ width: options.biggerCommands ? 64 : 32 }}

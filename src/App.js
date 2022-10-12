@@ -17,7 +17,6 @@ function App() {
   })
 
   const handleVisualizeCommandClicked = (cmd) => {
-    console.log(cmd);
     setCommandString(cmd);
   };
 
