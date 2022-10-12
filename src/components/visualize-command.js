@@ -54,6 +54,8 @@ const styles = {
     borderRadius: 8,
     border: `2px solid ${purple}`,
     alignItems: "center",
+    flexWrap: "wrap",
+    rowGap: "12px"
   },
   command: {
     width: 32,
