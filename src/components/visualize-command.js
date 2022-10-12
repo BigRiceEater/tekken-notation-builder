@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { purple, grey } from "@ant-design/colors";
 
 import ComboSeperator from "./combo-seperator";
-import { sanitize } from '../util/commands'
+import { sanitize } from "../util/commands";
 
 const VisualizeCommand = ({ data, options = {} }) => {
   const [commands, setCommands] = useState([]);
@@ -19,7 +19,12 @@ const VisualizeCommand = ({ data, options = {} }) => {
 
   const renderCommand = (cmd) => {
     console.log("render", cmd);
-    return <img style={{width : options.biggerCommands ? 64 : 32}} src={require(`../assets/${cmd}.svg`)} />;
+    return (
+      <img
+        style={{ width: options.biggerCommands ? 64 : 32 }}
+        src={require(`../assets/${cmd}.svg`)}
+      />
+    );
   };
 
   return (
@@ -35,7 +40,10 @@ const VisualizeCommand = ({ data, options = {} }) => {
             break;
           case ">":
             return (
-              <ComboSeperator invertColor={options.whiteBackgroundChecked} />
+              <ComboSeperator
+                invertColor={options.whiteBackgroundChecked}
+                bigger={options.biggerCommands}
+              />
             );
             break;
           default:
@@ -55,7 +63,7 @@ const styles = {
     border: `2px solid ${purple}`,
     alignItems: "center",
     flexWrap: "wrap",
-    rowGap: "12px"
+    rowGap: "12px",
   },
   command: {
     width: 32,

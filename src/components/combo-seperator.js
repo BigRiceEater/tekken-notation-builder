@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { grey } from "@ant-design/colors";
 
-const ComboSeperator = ({ invertColor }) => {
+const ComboSeperator = ({ invertColor, bigger = false }) => {
   return (
     <FontAwesomeIcon
       icon={faChevronRight}
-      size="lg"
+      size={bigger ? "2x" : "lg"}
       style={{ padding: "0px 6px", color: invertColor ? "black" : "white" }}
     />
   );
