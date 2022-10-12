@@ -3,7 +3,7 @@ import { Col } from "antd";
 
 const Section = (props) => {
   return (
-    <Col span={16} offset={4}>
+    <Col xs={24} md={16}>
       {props.children}
     </Col>
   );
