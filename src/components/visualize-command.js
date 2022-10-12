@@ -25,7 +25,14 @@ const VisualizeCommand = ({ data }) => {
 
   return (
     <div style={styles.container}>
-      {commands.map((command) => renderCommand(command))}
+      {
+        commands.map((command) => {
+          switch(command){
+            default:
+              return renderCommand(command)
+          }
+        })
+      }
     </div>
   );
 };
