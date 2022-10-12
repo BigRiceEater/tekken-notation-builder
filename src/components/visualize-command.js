@@ -10,7 +10,7 @@ const VisualizeCommand = ({ data }) => {
 
   function sanitizeCommand(cmdStr){
     // remove all spaces
-    const dataNoSpaces = data.replace(/\s/g, "");
+    const dataNoSpaces = data.toLowerCase().replace(/\s/g, "");
     // artificially add the limit symbol for pseudo command so we can split properly without user writing this themselves
     const addLimiterForAngleSymbol = dataNoSpaces.replace('>', ",>,");
     // split into array by . and , because '>' is actually a pseudo command
