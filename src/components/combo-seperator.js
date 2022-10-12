@@ -8,7 +8,7 @@ const ComboSeperator = ({ invertColor }) => {
     <FontAwesomeIcon
       icon={faChevronRight}
       size="lg"
-      style={{ color: invertColor ? grey[1] : "white" }}
+      style={{ color: invertColor ? "black" : "white" }}
     />
   );
 };
