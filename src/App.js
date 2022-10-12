@@ -6,12 +6,19 @@ import { Layout, Row, Col } from "antd";
 const { Content } = Layout;
 
 function App() {
+
+
+  const handleVisualizeCommandClicked = commandString =>{
+    console.log(commandString)
+  }
+
+
   return (
     <Layout style={{height:"100vh", padding: 24}}>
       <Content>
         <Row>
           <Col span={16} offset={4}>
-            <CommandInput />
+            <CommandInput onClick={handleVisualizeCommandClicked}/>
           </Col>
         </Row>
       </Content>

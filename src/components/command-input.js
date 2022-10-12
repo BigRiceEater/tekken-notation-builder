@@ -3,18 +3,18 @@ import { Row, Col, Input, Button } from "antd";
 
 const { TextArea } = Input;
 
-const CommandInput = ({ handleClick }) => {
+const CommandInput = ({ onClick }) => {
   const [commandNotation, setCommandNotation] = useState("");
   return (
     <Row gutter={[16,0]}>
       <Col span={18}>
         <Input
           placeholder="Command Notation"
-          onChange={(val) => setCommandNotation(val)}
+          onChange={(event) => setCommandNotation(event.target.value)}
         />
       </Col>
       <Col span={6}>
-        <Button block type="primary" onClick={() => handleClick(commandNotation)}>
+        <Button block type="primary" onClick={() => onClick(commandNotation)}>
           Generate
         </Button>
       </Col>
