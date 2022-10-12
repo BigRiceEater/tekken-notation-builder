@@ -17,13 +17,19 @@ const VisualizeCommand = ({ data }) => {
   const [commands, setCommands] = useState([]);
 
   useEffect(() => {
-    const dataNoSpaces = data.replace(/\s/g, "");
-    const splitCommands = dataNoSpaces.split(/[\.,>]+/);
-    const sanitizedCommands = splitCommands.filter((c) => c);
-    if (sanitizedCommands.length > 0) {
-      setCommands(sanitizedCommands);
-    }
+    setCommands(sanitizeCommand(data));
   }, [data]);
+
+  function sanitizeCommand(cmdStr){
+    // remove all spaces
+    const dataNoSpaces = data.replace(/\s/g, "");
+    // split into array by . , and > but the problem is > is also a pseudo command
+    const splitCommands = dataNoSpaces.split(/[\.,>]+/);
+    // remove all empty elements
+    const sanitizedCommands = splitCommands.filter((c) => c);
+
+    return sanitizedCommands;
+  }
 
   return (
     <div style={styles.container}>
