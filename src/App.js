@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import CommandInput from "./components/command-input";
+import { Layout, Row, Col } from "antd";
+
+const { Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Content>
+      <Row gutter={[16,0]}>
+        <Col span={24}>
+          <CommandInput />
+        </Col>
+      </Row>
+    </Content>
   );
 }
 
