@@ -20,7 +20,7 @@ const VisualizeCommand = ({ data, options = {} }) => {
     // remove all spaces
     const dataNoSpaces = data.toLowerCase().replace(/\s/g, "");
     // artificially add the limit symbol for pseudo command so we can split properly without user writing this themselves
-    const addLimiterForAngleSymbol = dataNoSpaces.replace(">", ",>,");
+    const addLimiterForAngleSymbol = dataNoSpaces.replace(/>/g, ",>,");
     // split into array by . and , because '>' is actually a pseudo command
     const splitCommands = addLimiterForAngleSymbol.split(/[\.,]+/);
     // remove all empty elements
