@@ -3,8 +3,7 @@ import { purple, grey } from "@ant-design/colors";
 
 import ComboSeperator from "./combo-seperator";
 
-
-const VisualizeCommand = ({ data }) => {
+const VisualizeCommand = ({ data, options = {} }) => {
   const [commands, setCommands] = useState([]);
 
   const SP_CMD = {
@@ -31,41 +30,42 @@ const VisualizeCommand = ({ data }) => {
   }
 
   const renderCommand = (cmd) => {
-    console.log('render',cmd)
-    return (
-      <img style={styles.command} src={require(`../assets/${cmd}.svg`)} />
-    )
+    console.log("render", cmd);
+    return <img style={styles.command} src={require(`../assets/${cmd}.svg`)} />;
   };
 
   return (
-    <div style={styles.container}>
-      {
-        commands.map( command  => {
-          switch (command) {
-            case "qcf":
-              return SP_CMD.qcf.map(c => renderCommand(c))
+    <div
+      style={{
+        ...styles.container,
+        background: options.whiteBackgroundChecked ? "white" : grey[2],
+      }}>
+      {commands.map((command) => {
+        switch (command) {
+          case "qcf":
+            return SP_CMD.qcf.map((c) => renderCommand(c));
             break;
-            case ">":
-              return <ComboSeperator/>
+          case ">":
+            return (
+              <ComboSeperator invertColor={options.whiteBackgroundChecked} />
+            );
             break;
-            default:
-              return renderCommand(command);
-          }
-        })
-      }
+          default:
+            return renderCommand(command);
+        }
+      })}
     </div>
   );
-}
+};
 
 const styles = {
   container: {
     display: "flex",
     padding: 16,
     minHeight: 88,
-    background: grey[2],
     borderRadius: 8,
     border: `2px solid ${purple}`,
-    alignItems: "center"
+    alignItems: "center",
   },
   command: {
     width: 32,

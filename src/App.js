@@ -32,7 +32,7 @@ function App() {
             <CommandInput onClick={handleVisualizeCommandClicked} />
           </Col>
           <Col span={16} offset={4}>
-            <VisualizeCommand data={commandString} />
+            <VisualizeCommand data={commandString} options={controlConfig}/>
           </Col>
           <Col span={16} offset={4}>
             <Controls data={controlConfig} onChange={handleControlChanged} />
