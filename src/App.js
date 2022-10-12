@@ -7,13 +7,15 @@ const { Content } = Layout;
 
 function App() {
   return (
-    <Content>
-      <Row>
-        <Col span={16} offset={4}>
-          <CommandInput />
-        </Col>
-      </Row>
-    </Content>
+    <Layout style={{height:"100vh", padding: 24}}>
+      <Content>
+        <Row>
+          <Col span={16} offset={4}>
+            <CommandInput />
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
   );
 }
 
