@@ -19,7 +19,7 @@ const VisualizeCommand = ({ data, options = {} }) => {
 
   const renderCommand = (cmd) => {
     console.log("render", cmd);
-    return <img style={styles.command} src={require(`../assets/${cmd}.svg`)} />;
+    return <img style={{width : options.biggerCommands ? 64 : 32}} src={require(`../assets/${cmd}.svg`)} />;
   };
 
   return (
