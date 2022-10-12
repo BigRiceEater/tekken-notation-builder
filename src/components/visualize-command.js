@@ -21,14 +21,16 @@ const VisualizeCommand = ({ data }) => {
     return sanitizedCommands;
   }
 
+  const renderCommand = cmd => <img style={styles.command} src={require(`../assets/${cmd}.svg`)} />
+
   return (
     <div style={styles.container}>
-      {commands.map((command) => (
-        <img style={styles.command} src={require(`../assets/${command}.svg`)} />
-      ))}
+      {commands.map((command) => renderCommand(command))}
     </div>
   );
 };
+
+
 
 const styles = {
   container: {
