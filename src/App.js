@@ -5,9 +5,10 @@ import CommandInput from "./components/command-input";
 import VisualizeCommand from "./components/visualize-command";
 import Controls from "./components/controls";
 import Section from "./layout/section";
-import { Layout, Row, Col } from "antd";
+import { Layout, Row, Col, Divider } from "antd";
+import packageData from "../package.json"
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 
 function App() {
   const [commandString, setCommandString] = useState("");
@@ -40,6 +41,9 @@ function App() {
           </Section>
         </Row>
       </Content>
+      <Footer>
+        <Divider orientation="center">Version {packageData.version}</Divider>
+      </Footer>
     </Layout>
   );
 }
