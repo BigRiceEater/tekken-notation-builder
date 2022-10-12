@@ -65,6 +65,7 @@ const styles = {
     background: grey[2],
     borderRadius: 8,
     border: `2px solid ${purple}`,
+    alignItems: "center"
   },
   command: {
     width: 32,
