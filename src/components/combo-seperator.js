@@ -4,7 +4,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const ComboSeperator = (props) => {
   return (
-    <FontAwesomeIcon icon={faChevronRight} size="lg" style={{text: "white"}}/>
+    <FontAwesomeIcon icon={faChevronRight} size="lg" style={{color: "white" }}/>
   )
 }
 
