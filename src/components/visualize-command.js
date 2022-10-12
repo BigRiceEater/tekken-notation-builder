@@ -44,6 +44,7 @@ const VisualizeCommand = ({ data, options = {} }) => {
           case ">":
             return (
               <ComboSeperator
+                key={idx}
                 invertColor={options.whiteBackgroundChecked}
                 bigger={options.biggerCommands}
               />
