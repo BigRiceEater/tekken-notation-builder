@@ -6,7 +6,7 @@ const { TextArea } = Input;
 const CommandInput = ({ handleClick }) => {
   const [commandNotation, setCommandNotation] = useState("");
   return (
-    <Row>
+    <Row gutter={[16,0]}>
       <Col span={18}>
         <Input
           placeholder="Command Notation"
