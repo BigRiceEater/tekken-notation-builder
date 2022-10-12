@@ -1,20 +1,16 @@
 import React from "react";
-import { Row, Col, Checkbox } from "antd";
+import { Row, Col } from "antd";
+import Checkbox from "./control-checkbox";
 
 const Controls = ({ data, onChange }) => {
-
-  console.log(data)
+  console.log(data);
   return (
     <Row>
       <Col>
         <Checkbox
-          onChange={(event) => {
-            onChange({
-              controlName: "whiteBackgroundChecked",
-              value: event.target.checked,
-            });
-          }}
-          checked={data.whiteBackgroundChecked}>
+          controlName="whiteBackgroundChecked"
+          checked={data.whiteBackgroundChecked}
+          onChange={onChange}>
           White Background
         </Checkbox>
       </Col>
