@@ -14,7 +14,7 @@ const CommandInput = ({ handleClick }) => {
         />
       </Col>
       <Col span={6}>
-        <Button type="primary" onClick={() => handleClick(commandNotation)}>
+        <Button block type="primary" onClick={() => handleClick(commandNotation)}>
           Generate
         </Button>
       </Col>
