@@ -33,10 +33,13 @@ const VisualizeCommand = ({ data, options = {} }) => {
         ...styles.container,
         background: options.whiteBackgroundChecked ? "white" : grey[2],
       }}>
-      {commands.map((command) => {
+      {commands.map((command,idx) => {
         switch (command) {
           case "qcf":
-            return SP_CMD.qcf.map((c) => renderCommand(c));
+            return 
+            <React.Fragment key={idx}>
+             {SP_CMD.qcf.map((cmd) => renderCommand(cmd))}
+            </React.Fragment>
             break;
           case ">":
             return (
