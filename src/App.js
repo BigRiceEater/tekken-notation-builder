@@ -13,6 +13,7 @@ function App() {
   const [commandString, setCommandString] = useState("");
   const [controlConfig, setControlConfig] = useState({
     whiteBackgroundChecked : false,
+    biggerCommands : false
   })
 
   const handleVisualizeCommandClicked = (cmd) => {

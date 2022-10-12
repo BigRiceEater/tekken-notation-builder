@@ -14,6 +14,14 @@ const Controls = ({ data, onChange }) => {
           White Background
         </Checkbox>
       </Col>
+      <Col>
+        <Checkbox
+          controlName="biggerCommands"
+          checked={data.biggerCommands}
+          onChange={onChange}>
+          Bigger Commands
+        </Checkbox>
+      </Col>
     </Row>
   );
 };
