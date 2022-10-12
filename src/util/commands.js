@@ -14,7 +14,7 @@ exports.sanitize = function(cmdstring){
     try {
       ['F','D','B','U'].forEach(notation => {
         if (cmd.includes(notation)){
-          sanitizedCommands[i] = cmd.toLowerCase() + 'p';
+          sanitizedCommands[i] = cmd + 'p';
           throw new Error('Not an Error');
         }
       })
@@ -22,5 +22,7 @@ exports.sanitize = function(cmdstring){
     catch(err){} // do nothing, just used to break forEach.
   }
 
-  return sanitizedCommands;
+  const lowercaseCommands = sanitizedCommands.map( cmds => cmds.toLowerCase())
+
+  return lowercaseCommands;
 }
