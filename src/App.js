@@ -8,8 +8,8 @@ const { Content } = Layout;
 function App() {
   return (
     <Content>
-      <Row gutter={[16,0]}>
-        <Col span={24}>
+      <Row>
+        <Col span={16} offset={4}>
           <CommandInput />
         </Col>
       </Row>
