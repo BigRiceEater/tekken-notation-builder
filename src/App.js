@@ -28,7 +28,7 @@ function App() {
   return (
     <Layout style={{ height: "100vh", padding: 24 }}>
       <Content>
-        <Row gutter={[16, 16]}>
+        <Row justify="center" gutter={[16, 16]}>
           <Section>
             <CommandInput onClick={handleVisualizeCommandClicked} />
           </Section>
