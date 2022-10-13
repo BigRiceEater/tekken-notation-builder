@@ -19,18 +19,20 @@ const Home = () => {
     console.log("Setting config after control has changed");
     setControlConfig((config) => ({ ...config, [controlName]: value }));
   };
-  return;
-  <React.Fragment>
-    <Section>
-      <CommandInput onClick={handleVisualizeCommandClicked} />
-    </Section>
-    <Section>
-      <VisualizeCommand data={commandString} options={controlConfig} />
-    </Section>
-    <Section>
-      <Controls data={controlConfig} onChange={handleControlChanged} />
-    </Section>
-  </React.Fragment>;
+
+  return (
+    <React.Fragment>
+      <Section>
+        <CommandInput onClick={handleVisualizeCommandClicked} />
+      </Section>
+      <Section>
+        <VisualizeCommand data={commandString} options={controlConfig} />
+      </Section>
+      <Section>
+        <Controls data={controlConfig} onChange={handleControlChanged} />
+      </Section>
+    </React.Fragment>
+  );
 };
 
 export default Home;

@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import { Layout , Row, Divider} from 'antd';
 import packageData from "../../package.json"
 
@@ -8,9 +9,7 @@ const Root = () =>{
    <Layout style={styles.container}>
      <Content>
        <Row justify="center" gutter={[16, 16]}>
-         {/* <Routes>
-           <Route exact path="/" element={<Home />} />
-         </Routes> */}
+         <Outlet />
        </Row>
      </Content>
      <Footer>
