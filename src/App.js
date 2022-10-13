@@ -5,7 +5,7 @@ import "./App.css";
 import { Layout, Row, Col, Divider } from "antd";
 import packageData from "../package.json"
 
-import Home from './pages/home'
+import Home from './routes/home'
 
 import {
   Routes,
