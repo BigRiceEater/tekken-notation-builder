@@ -4,10 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Roadmap
 
-* Add version indicator at the bottom of page
-* Report back to user what syntax was wrong to be helpful
-* Add example of possible notations
-* Add visual builder mode where users can drag commands to the pallete to build the combo instead.
+- [x] Add version indicator at the bottom of page
+- [ ] Report back to user what syntax was wrong to be helpful
+- [ ] Define a list of recognised commands to check for errors
+- [ ] Handle the fact we cannot use + to couple a button with direction and pressing two buttons at the same time.
+- [ ] Add example of possible notations
+- [ ] Add visual builder mode where users can drag commands to the pallete to build the combo instead.
+- [ ] Alternatively let user click on the notation they want but also need to be able to edit the commands like deleting and moving
+- [ ] Use redux to pass config around more easily
 
 ## Available Scripts
 
