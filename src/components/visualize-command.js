@@ -18,12 +18,18 @@ const VisualizeCommand = ({ data, options = {} }) => {
   }, [data]);
 
   const renderCommand = (cmd) => {
-    return (
-      <img
+    try {
+
+      return (
+        <img
         style={{ width: options.biggerCommands ? 64 : 32 }}
         src={require(`../assets/${cmd}.svg`)}
-      />
-    );
+        />
+        );
+      }
+    catch(err){
+      console.log('Unrecognised command', cmd)
+    }
   };
 
   return (
