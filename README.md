@@ -11,7 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ ] Add example of possible notations
 - [ ] Add visual builder mode where users can drag commands to the pallete to build the combo instead.
 - [ ] Alternatively let user click on the notation they want but also need to be able to edit the commands like deleting and moving
-- [ ] Use redux to pass config around more easily
+- [ ] Use redux to pass config around more easily.
+- [ ] Add a burger menu at the top left and feature a help section? 
 
 ## Available Scripts
 
