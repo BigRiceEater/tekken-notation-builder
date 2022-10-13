@@ -43,7 +43,7 @@ function App() {
         </Row>
       </Content>
       <Footer>
-        <Divider orientation="center">Version {packageData.version}</Divider>
+        <Divider orientation="center" plain>Version {packageData.version}</Divider>
       </Footer>
     </Layout>
   );
@@ -56,6 +56,9 @@ const styles = {
     paddingBottom : 0,
     paddingLeft: 24,
     paddingRight: 24
+  },
+  footer : {
+    
   }
 }
 
