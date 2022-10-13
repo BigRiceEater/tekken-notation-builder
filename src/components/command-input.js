@@ -15,7 +15,7 @@ const CommandInput = ({ onClick }) => {
       </Col>
       <Col span={6}>
         <Button block type="primary" onClick={() => onClick(commandNotation)}>
-          Generate
+          Go!
         </Button>
       </Col>
     </Row>
