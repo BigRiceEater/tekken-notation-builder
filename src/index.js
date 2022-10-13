@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createHashRouter as createRouter, RouterProvider, Route } from "react-router-dom";
 import Home from "./routes/home";
 import Root from "./routes/root";
 import ErrorPage from "./routes/error-page";
 
-const router = createBrowserRouter([
+const router = createRouter([
   {
     path: "/",
     element: <Root />,
