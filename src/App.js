@@ -51,7 +51,7 @@ function App() {
 
 const styles = {
   container : {
-    height:"100vh",
+    height:"100%",
     paddingTop: 24,
     paddingBottom : 0,
     paddingLeft: 24,
