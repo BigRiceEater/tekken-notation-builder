@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tekken-notation-builder/static/css/main.4d7fd2c8.css",
-    "main.js": "/tekken-notation-builder/static/js/main.510fd583.js",
+    "main.js": "/tekken-notation-builder/static/js/main.1b2070ba.js",
     "static/js/787.221fc4e8.chunk.js": "/tekken-notation-builder/static/js/787.221fc4e8.chunk.js",
     "static/media/logo.svg": "/tekken-notation-builder/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "static/media/ws.svg": "/tekken-notation-builder/static/media/ws.e29573485b2c344234f4.svg",
@@ -43,11 +43,11 @@
     "static/media/bracketL.svg": "/tekken-notation-builder/static/media/bracketL.315d04be35e79db134b7.svg",
     "static/media/bracketR.svg": "/tekken-notation-builder/static/media/bracketR.30cb0f7a7990734998de.svg",
     "main.4d7fd2c8.css.map": "/tekken-notation-builder/static/css/main.4d7fd2c8.css.map",
-    "main.510fd583.js.map": "/tekken-notation-builder/static/js/main.510fd583.js.map",
+    "main.1b2070ba.js.map": "/tekken-notation-builder/static/js/main.1b2070ba.js.map",
     "787.221fc4e8.chunk.js.map": "/tekken-notation-builder/static/js/787.221fc4e8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d7fd2c8.css",
-    "static/js/main.510fd583.js"
+    "static/js/main.1b2070ba.js"
   ]
 }
