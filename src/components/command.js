@@ -36,6 +36,10 @@ export const CommandName = {
 
   threefour: "3+4",
 
+  onetwothree : "1+2+3",
+  onetwothreefour : "1+2+3+4",
+  onethreefour : "1+3+4",
+
   forward: "f",
   fowardhold: "fp",
   back: "b",
@@ -63,4 +67,5 @@ export const CommandName = {
   screw: "screw",
   delay: "delay",
   wall: "wall",
+  fullcrouch : "fc",
 };
