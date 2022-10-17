@@ -7,8 +7,7 @@ import ErrorToast from "../components/error-toast";
 import { sanitize, isValid } from "../util/commands";
 
 const Home = () => {
-  const [commands, setCommands] = useState([]);
-  const [errors, setErrors] = useState([]);
+  const [commands, setCommands] = useState({data:[], errors:[]});
   const [controlConfig, setControlConfig] = useState({
     whiteBackgroundChecked: false,
     biggerCommands: false,
@@ -16,15 +15,14 @@ const Home = () => {
 
   const handleVisualizeCommandClicked = (cmdString) => {
     console.log("Off we go ...");
-    const cmds = sanitize(cmdString);
-    const errors = isValid(cmds);
+    const data = sanitize(cmdString);
+    const errors = isValid(data);
 
     errors.forEach((err) => {
-      cmds[err.index] = "error";
+      data[err.index] = "error";
     });
 
-    setCommands(cmds);
-    setErrors(errors);
+    setCommands({data,errors});
   };
 
   const handleControlChanged = ({ controlName, value }) => {
@@ -32,13 +30,15 @@ const Home = () => {
     setControlConfig((config) => ({ ...config, [controlName]: value }));
   };
 
+  const { data, errors } = commands;
+ 
   return (
     <React.Fragment>
       <Section>
         <CommandInput onClick={handleVisualizeCommandClicked} />
       </Section>
       <Section>
-        <VisualizeCommand commands={commands} options={controlConfig} />
+        <VisualizeCommand commands={data} options={controlConfig} />
       </Section>
       <Section>
         <Controls data={controlConfig} onChange={handleControlChanged} />
