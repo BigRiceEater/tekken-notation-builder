@@ -1,6 +1,6 @@
 {
   "name": "tekken-notation-builder",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "private": true,
   "homepage": "https://bigriceeater.github.io/tekken-notation-builder",
   "dependencies": {
