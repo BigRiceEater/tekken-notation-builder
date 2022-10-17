@@ -4,9 +4,15 @@ import two from "../assets/2.svg";
 import three from "../assets/3.svg";
 import four from "../assets/4.svg";
 
+// https://github.com/facebook/create-react-app/issues/9831#issuecomment-716063951
+/* 
+  Failing to use craco to indicate these image files are not es Modules, the next best 
+  workaround is by using the .default when declaring the require() for now.
+*/
+
 const Command = ({children, options = {}})=>{
 
-  var iconSource = require('../assets/1.svg');
+  var iconSource = require('../assets/1.svg').default;
   switch(children){
     case IconName.one : 
       iconSource = one;
