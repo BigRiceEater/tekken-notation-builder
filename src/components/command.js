@@ -1,4 +1,3 @@
-import { icons } from "antd/lib/image/PreviewGroup";
 import one from "../assets/1.svg";
 import two from "../assets/2.svg";
 import three from "../assets/3.svg";
