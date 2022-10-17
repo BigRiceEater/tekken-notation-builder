@@ -1,11 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { WarningTwoTone } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
 const ErrorCommand = ({ cmd, options }) => {
   
+  // The alert will only show once in the whole lifetime of this particular instances existence
+  const showAlert = useRef(true);
+
   useEffect(() => {
-    toast(`${cmd} is wrong!`);
+    if (showAlert.current){
+      toast(`${cmd} is wrong!`);
+      showAlert.current = false
+    }
   }, []);
 
   return (
