@@ -1,4 +1,4 @@
-import { WarningTwoTone } from "@ant-design/icons";
+import ErrorCommand from './error-command'
 
 // https://github.com/facebook/create-react-app/issues/9831#issuecomment-716063951
 /* 
@@ -20,7 +20,7 @@ const Command = ({ icon, options = {} }) => {
       />
     );
   } catch (err) {
-    return (<WarningTwoTone twoToneColor="#eb2f96" style={{fontSize: options.biggerCommands ? 64 : 32 }}/>)
+    return (<ErrorCommand options={options}/>)
   }
 };
 
