@@ -6,8 +6,7 @@ import ComboSeperator from "./combo-seperator";
 
 import { sanitize } from "../util/commands";
 
-const VisualizeCommand = ({ data, options = {} }) => {
-  const [commands, setCommands] = useState([]);
+const VisualizeCommand = ({ commands = [], options = {} }) => {
 
   const SP_CMD = {
     qcf: ["d", "df", "f"],
@@ -15,16 +14,8 @@ const VisualizeCommand = ({ data, options = {} }) => {
     dp: ["f", "d", "df"],
   };
 
-  useEffect(() => {
-    setCommands(sanitize(data));
-  }, [data]);
-
   const renderCommand = (cmd) => {
-    try {
-      return <Command icon={cmd} options={options} />;
-    } catch (err) {
-      console.log("Unrecognised command", cmd);
-    }
+    return <Command icon={cmd} options={options} />;
   };
 
   return (
