@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const ErrorToast = ({cmd}) =>
+const showErrorToast = ({cmd}) =>
   toast.error(`${cmd} is not recognised`, {
     position: "bottom-right",
     autoClose: 3000,
@@ -12,4 +12,4 @@ const ErrorToast = ({cmd}) =>
     theme: "light",
   });
 
-export default ErrorToast;
+export default showErrorToast;
