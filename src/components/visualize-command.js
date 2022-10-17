@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { purple, grey } from "@ant-design/colors";
 
+import Command from "./command";
 import ComboSeperator from "./combo-seperator";
+
 import { sanitize } from "../util/commands";
 
 const VisualizeCommand = ({ data, options = {} }) => {
@@ -19,16 +21,9 @@ const VisualizeCommand = ({ data, options = {} }) => {
 
   const renderCommand = (cmd) => {
     try {
-
-      return (
-        <img
-        style={{ width: options.biggerCommands ? 64 : 32 }}
-        src={require(`../assets/${cmd}.svg`)}
-        />
-        );
-      }
-    catch(err){
-      console.log('Unrecognised command', cmd)
+      return <Command icon={cmd} options={options} />;
+    } catch (err) {
+      console.log("Unrecognised command", cmd);
     }
   };
 
@@ -38,13 +33,13 @@ const VisualizeCommand = ({ data, options = {} }) => {
         ...styles.container,
         background: options.whiteBackgroundChecked ? "white" : grey[2],
       }}>
-      {commands.map((command,idx) => {
+      {commands.map((command, idx) => {
         switch (command) {
           case "qcf":
-            return 
+            return;
             <React.Fragment key={idx}>
-             {SP_CMD.qcf.map((cmd) => renderCommand(cmd))}
-            </React.Fragment>
+              {SP_CMD.qcf.map((cmd) => renderCommand(cmd))}
+            </React.Fragment>;
             break;
           case ">":
             return (
