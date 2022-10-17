@@ -3,16 +3,19 @@ import Section from "../layout/section";
 import CommandInput from "../components/command-input";
 import VisualizeCommand from "../components/visualize-command";
 import Controls from "../components/controls";
+import {sanitize} from "../util/commands";
 
 const Home = () => {
-  const [commandString, setCommandString] = useState("");
+  const [commands, setCommands] = useState([]);
   const [controlConfig, setControlConfig] = useState({
     whiteBackgroundChecked: false,
     biggerCommands: false,
   });
 
-  const handleVisualizeCommandClicked = (cmd) => {
-    setCommandString(cmd);
+  const handleVisualizeCommandClicked = (cmdString) => {
+    console.log('Off we go ...')
+    const cmds = sanitize(cmdString);
+    setCommands(cmds);
   };
 
   const handleControlChanged = ({ controlName, value }) => {
@@ -26,7 +29,7 @@ const Home = () => {
         <CommandInput onClick={handleVisualizeCommandClicked} />
       </Section>
       <Section>
-        <VisualizeCommand data={commandString} options={controlConfig} />
+        <VisualizeCommand commands={commands} options={controlConfig} />
       </Section>
       <Section>
         <Controls data={controlConfig} onChange={handleControlChanged} />
