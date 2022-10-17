@@ -1,3 +1,5 @@
+import { WarningTwoTone } from "@ant-design/icons";
+
 // https://github.com/facebook/create-react-app/issues/9831#issuecomment-716063951
 /* 
   Failing to use craco to indicate these image files are not es Modules, the next best 
@@ -10,12 +12,16 @@
 
 // 'icon' should be given the CommandName to find the corresponding filename to load
 const Command = ({ icon, options = {} }) => {
-  return (
-    <img
-      style={{ width: options.biggerCommands ? 64 : 32 }}
-      src={require(`../assets/${icon}.svg`)}
-    />
-  );
+  try {
+    return (
+      <img
+        style={{ width: options.biggerCommands ? 64 : 32 }}
+        src={require(`../assets/${icon}.svg`)}
+      />
+    );
+  } catch (err) {
+    return (<WarningTwoTone twoToneColor="#eb2f96" style={{fontSize: options.biggerCommands ? 64 : 32 }}/>)
+  }
 };
 
 export default Command;
@@ -36,9 +42,9 @@ export const CommandName = {
 
   threefour: "3+4",
 
-  onetwothree : "1+2+3",
-  onetwothreefour : "1+2+3+4",
-  onethreefour : "1+3+4",
+  onetwothree: "1+2+3",
+  onetwothreefour: "1+2+3+4",
+  onethreefour: "1+3+4",
 
   forward: "f",
   fowardhold: "fp",
@@ -67,5 +73,5 @@ export const CommandName = {
   screw: "screw",
   delay: "delay",
   wall: "wall",
-  fullcrouch : "fc",
+  fullcrouch: "fc",
 };
