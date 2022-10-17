@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom"
 import { Layout , Row, Divider} from 'antd';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import packageData from "../../package.json"
 
 const { Content, Footer } = Layout;
@@ -15,6 +17,7 @@ const Root = () =>{
      <Footer>
        <Divider orientation="center" plain>Version {packageData.version}</Divider>
      </Footer>
+     <ToastContainer />
    </Layout>
  );
 }

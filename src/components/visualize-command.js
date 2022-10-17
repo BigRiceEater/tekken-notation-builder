@@ -20,11 +20,7 @@ const VisualizeCommand = ({ data, options = {} }) => {
   }, [data]);
 
   const renderCommand = (cmd) => {
-    try {
-      return <Command icon={cmd} options={options} />;
-    } catch (err) {
-      console.log("Unrecognised command", cmd);
-    }
+    return <Command icon={cmd} options={options} />;
   };
 
   return (

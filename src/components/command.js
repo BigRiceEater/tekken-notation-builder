@@ -20,7 +20,7 @@ const Command = ({ icon, options = {} }) => {
       />
     );
   } catch (err) {
-    return (<ErrorCommand options={options}/>)
+    return (<ErrorCommand cmd={icon} options={options}/>)
   }
 };
 

@@ -1,6 +1,13 @@
+import { useEffect } from "react";
 import { WarningTwoTone } from "@ant-design/icons";
+import { toast } from "react-toastify";
 
-const ErrorCommand = ({options}) => {
+const ErrorCommand = ({ cmd, options }) => {
+  
+  useEffect(() => {
+    toast(`${cmd} is wrong!`);
+  }, []);
+
   return (
     <WarningTwoTone
       twoToneColor="#eb2f96"
