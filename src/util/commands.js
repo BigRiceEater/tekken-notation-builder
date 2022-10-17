@@ -1,3 +1,4 @@
+const { default: Command } = require('../components/command');
 const { CommandName } = require('./command-name')
 
 exports.sanitize = function(cmdstring){
@@ -31,9 +32,11 @@ exports.sanitize = function(cmdstring){
 
 exports.isValid = function(cmds){
   const errors = [];
+  const filenames = Object.values(CommandName);
 
+  // ideally we should be checking against CommandName properties not the values directly
   cmds.forEach((cmd,index) => {
-    if (!CommandName.hasOwnProperty(cmd)){
+    if (!filenames.includes(cmd)){
       errors.push({cmd, index})
     }
   })
