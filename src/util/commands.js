@@ -1,3 +1,5 @@
+const { CommandName } = require('./command-name')
+
 exports.sanitize = function(cmdstring){
   // remove all spaces
   const dataNoSpaces = cmdstring.replace(/\s/g, "");
@@ -25,4 +27,16 @@ exports.sanitize = function(cmdstring){
   const lowercaseCommands = sanitizedCommands.map( cmds => cmds.toLowerCase())
 
   return lowercaseCommands;
+}
+
+exports.isValid = function(cmds){
+  const errors = [];
+
+  cmds.forEach((cmd,index) => {
+    if (!CommandName.hasOwnProperty(cmd)){
+      errors.push({cmd, index})
+    }
+  })
+
+  return errors;
 }
