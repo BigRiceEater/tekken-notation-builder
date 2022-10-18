@@ -25,7 +25,7 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
   };
 
   const renderCommand = (cmd) => {
-    return <Command icon={cmd} options={appOptions} />;
+    return <Command icon={cmd} />;
   };
 
   useEffect(() => {
