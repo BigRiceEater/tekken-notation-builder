@@ -4,7 +4,6 @@ import { CopyOutlined } from "@ant-design/icons";
 import Checkbox from "./control-checkbox";
 
 const Controls = ({ data, onChange, onClipboardClick }) => {
-  console.log(data);
   return (
     <Space>
       <Button
