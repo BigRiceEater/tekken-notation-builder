@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Space } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
 import Checkbox from "./control-checkbox";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { appOptionsStore, appOptionKey } from "../store/app-options";
 
 const Controls = ({ onClipboardClick }) => {
