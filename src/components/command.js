@@ -1,4 +1,6 @@
 import ErrorCommand from "./error-command";
+import { useRecoilValue } from "recoil";
+import { appOptionsStore } from "../store/app-options";
 
 // https://github.com/facebook/create-react-app/issues/9831#issuecomment-716063951
 /* 
@@ -11,20 +13,25 @@ import ErrorCommand from "./error-command";
 */
 
 // 'icon' should be given the CommandName to find the corresponding filename to load
-const Command = ({ icon, options = {} }) => {
+const Command = ({ icon }) => {
+
+  const appOptions = useRecoilValue(appOptionsStore);
+
+  const { biggerCommands } = appOptions;
+
   try {
     if (icon === "error") {
-      return <ErrorCommand cmd={icon} options={options} />;
+      return <ErrorCommand cmd={icon} />;
     } else {
       return (
         <img
-          style={{ width: options.biggerCommands ? 64 : 32 }}
+          style={{ width: biggerCommands ? 64 : 32 }}
           src={require(`../assets/${icon}.svg`)}
         />
       );
     }
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 };
 

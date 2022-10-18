@@ -2,16 +2,25 @@ import React, { useEffect, useState } from "react";
 import { Button, Space } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
 import Checkbox from "./control-checkbox";
+import { useRecoilState } from "recoil";
+import { appOptionsStore } from "../store/app-options";
 
+const Controls = ({ onClipboardClick }) => {
+  const [showClipboardButton, setShowClipboardButton] = useState(false);
+  const [appOptions, setAppOptions] = useRecoilState(appOptionsStore);
 
-const Controls = ({ data, onChange, onClipboardClick }) => {
-
-  const [showClipboardButton , setShowClipboardButton] = useState(false)
-
-  useEffect(()=>{
-    const isMobile = window.innerWidth <= 576 ;
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 576;
     setShowClipboardButton(!isMobile);
-  })
+  });
+
+  const handleAppOptionsChanged = ({ controlName, value }) => {
+    setAppOptions((prev) => {
+      return { ...prev, [controlName]: value };
+    });
+  };
+
+  const { whiteBackground, biggerCommands } = appOptions;
 
   return (
     <Space>
@@ -22,16 +31,16 @@ const Controls = ({ data, onChange, onClipboardClick }) => {
           onClick={onClipboardClick}></Button>
       )}
       <Checkbox
-        controlName="whiteBackgroundChecked"
-        checked={data.whiteBackgroundChecked}
-        onChange={onChange}>
+        controlName="whiteBackground"
+        checked={whiteBackground}
+        onChange={handleAppOptionsChanged}>
         White Background
       </Checkbox>
 
       <Checkbox
         controlName="biggerCommands"
-        checked={data.biggerCommands}
-        onChange={onChange}>
+        checked={biggerCommands}
+        onChange={handleAppOptionsChanged}>
         Bigger Commands
       </Checkbox>
     </Space>

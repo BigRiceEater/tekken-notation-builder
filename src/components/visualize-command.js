@@ -11,8 +11,12 @@ import { toBlob } from "html-to-image";
 
 import { Button } from "antd";
 
-const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
+import { appOptionsStore } from "../store/app-options";
+import { useRecoilValue } from "recoil";
+
+const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
   const [commandsImage, setCommandsImage] = useState(null);
+  const appOptions = useRecoilValue(appOptionsStore); 
 
   const SP_CMD = {
     qcf: ["d", "df", "f"],
@@ -21,7 +25,7 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
   };
 
   const renderCommand = (cmd) => {
-    return <Command icon={cmd} options={options} />;
+    return <Command icon={cmd} />;
   };
 
   useEffect(() => {
@@ -41,13 +45,15 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
     }
   });
 
+  const { whiteBackground, biggerCommands } = appOptions;
+
   return (
     <React.Fragment>
       <div
         id="commands-container"
         style={{
           ...styles.container,
-          background: options.whiteBackgroundChecked ? "white" : grey[2],
+          background: whiteBackground ? "white" : grey[2],
         }}>
         {commands.map((command, idx) => {
           switch (command) {
@@ -61,8 +67,8 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
               return (
                 <ComboSeperator
                   key={idx}
-                  invertColor={options.whiteBackgroundChecked}
-                  bigger={options.biggerCommands}
+                  invertColor={whiteBackground}
+                  bigger={biggerCommands}
                 />
               );
               break;
