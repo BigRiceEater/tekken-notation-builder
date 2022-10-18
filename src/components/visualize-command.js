@@ -10,7 +10,6 @@ import * as htmlToImage from "html-to-image";
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 
 const VisualizeCommand = ({ commands = [], options = {} }) => {
-
   const [commandsImage, setCommandsImage] = useState(null);
 
   const SP_CMD = {
@@ -26,8 +25,8 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
   useEffect(() => {
     const imageContainer = document.getElementById("image-container");
     const commandsContainer = document.getElementById("commands-container");
-    const oldImage = document.getElementById('commands-as-image');
-    htmlToImage.toPng(commandsContainer).then((dataUrl) => {
+    const oldImage = document.getElementById("commands-as-image");
+    htmlToImage.toPng(commandsContainer, { pixelRatio: 1 }).then((dataUrl) => {
       // const img = new Image();
       // img.src = dataUrl;
       // imageContainer.replaceChild(img,oldImage);
@@ -86,9 +85,7 @@ const styles = {
   command: {
     width: 32,
   },
-  imageContainer:{
-    
-  }
+  imageContainer: {},
 };
 
 export default VisualizeCommand;
