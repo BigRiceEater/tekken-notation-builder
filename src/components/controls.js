@@ -14,14 +14,14 @@ const Controls = ({ onClipboardClick }) => {
     setShowClipboardButton(!isMobile);
   });
 
-  const handleControlConfigChanged = ({ controlName, value }) => {
+  const handleAppOptionsChanged = ({ controlName, value }) => {
     setAppOptions((prev) => {
       return { ...prev, [controlName]: value };
     });
   };
 
   const { whiteBackground, biggerCommands } = appOptions;
-  
+
   return (
     <Space>
       {showClipboardButton && (
@@ -33,14 +33,14 @@ const Controls = ({ onClipboardClick }) => {
       <Checkbox
         controlName="whiteBackground"
         checked={whiteBackground}
-        onChange={handleControlConfigChanged}>
+        onChange={handleAppOptionsChanged}>
         White Background
       </Checkbox>
 
       <Checkbox
         controlName="biggerCommands"
         checked={biggerCommands}
-        onChange={handleControlConfigChanged}>
+        onChange={handleAppOptionsChanged}>
         Bigger Commands
       </Checkbox>
     </Space>
