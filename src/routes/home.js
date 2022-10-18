@@ -4,6 +4,7 @@ import CommandInput from "../components/command-input";
 import VisualizeCommand from "../components/visualize-command";
 import Controls from "../components/controls";
 import showErrorToast from "../util/error-toast";
+import showSuccessToast from "../util/success-toast";
 import { sanitize, isValid } from "../util/commands";
 
 const Home = () => {
@@ -17,7 +18,6 @@ const Home = () => {
   });
 
   const handleVisualizeCommandClicked = (cmdString) => {
-    console.log("Off we go ...");
     const cmds = sanitize(cmdString);
     const errors = isValid(cmds);
 
@@ -30,7 +30,6 @@ const Home = () => {
   };
 
   const handleControlChanged = ({ controlName, value }) => {
-    console.log("Setting config after control has changed");
     setControlConfig((config) => ({ ...config, [controlName]: value }));
   };
 
@@ -39,6 +38,7 @@ const Home = () => {
   }
 
   const handleClipboardDone = () =>{
+    showSuccessToast("Copied!")
     setClipboard({triggered : false})
   }
 
