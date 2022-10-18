@@ -46,4 +46,6 @@ export const CommandName = {
   delay: "delay",
   wall: "wall",
   fullcrouch: "fc",
+
+  combo : ">"
 };
