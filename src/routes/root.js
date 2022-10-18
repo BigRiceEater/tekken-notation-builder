@@ -1,10 +1,11 @@
-import { Outlet } from "react-router-dom";
-import { Layout, Row, Divider } from "antd";
+import { Link, Outlet } from "react-router-dom";
+import { Layout, Row, Divider, Typography } from "antd";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import packageData from "../../package.json";
 
 const { Content, Footer } = Layout;
+const { Link: Hyperlink } = Typography;
 
 const Root = () => {
   return (
@@ -16,7 +17,12 @@ const Root = () => {
       </Content>
       <Footer>
         <Divider orientation="center" plain>
-          Version {packageData.version}
+          Version {packageData.version} :{" "}
+          <Hyperlink
+            href="https://github.com/BigRiceEater/tekken-notation-builder/issues"
+            target="blank">
+            Report an issue
+          </Hyperlink>
         </Divider>
       </Footer>
       <ToastContainer
