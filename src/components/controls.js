@@ -1,11 +1,15 @@
 import React from "react";
-import { Row, Col } from "antd";
+import { Row, Col, Button } from "antd";
+import { CopyOutlined } from "@ant-design/icons";
 import Checkbox from "./control-checkbox";
 
-const Controls = ({ data, onChange }) => {
+const Controls = ({ data, onChange, onClipboardClick }) => {
   console.log(data);
   return (
-    <Row>
+    <Row align="middle">
+      <Col>
+        <Button type="default" icon={<CopyOutlined />} onClick={onClipboardClick}></Button>
+      </Col>
       <Col>
         <Checkbox
           controlName="whiteBackgroundChecked"
