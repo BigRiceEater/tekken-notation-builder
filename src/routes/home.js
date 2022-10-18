@@ -9,12 +9,9 @@ import { sanitize, isValid } from "../util/commands";
 
 const Home = () => {
   const [commands, setCommands] = useState([]);
-  const [clipboard, setClipboard] = useState({done : ()=>{
-
-  }, triggered : false});
-  const [controlConfig, setControlConfig] = useState({
-    whiteBackgroundChecked: false,
-    biggerCommands: false,
+  const [clipboard, setClipboard] = useState({
+    done: () => {},
+    triggered: false,
   });
 
   const handleVisualizeCommandClicked = (cmdString) => {
@@ -23,24 +20,20 @@ const Home = () => {
 
     errors.forEach((err) => {
       cmds[err.index] = "error";
-      showErrorToast(err)
+      showErrorToast(err);
     });
 
     setCommands(cmds);
   };
 
-  const handleControlChanged = ({ controlName, value }) => {
-    setControlConfig((config) => ({ ...config, [controlName]: value }));
+  const handleClipboardClicked = () => {
+    setClipboard({ done: handleClipboardDone, triggered: true });
   };
 
-  const handleClipboardClicked = () => {
-    setClipboard({done : handleClipboardDone, triggered : true})
-  }
-
-  const handleClipboardDone = () =>{
-    showSuccessToast("Copied!")
-    setClipboard({triggered : false})
-  }
+  const handleClipboardDone = () => {
+    showSuccessToast("Copied!");
+    setClipboard({ triggered: false });
+  };
 
   return (
     <React.Fragment>
@@ -48,10 +41,10 @@ const Home = () => {
         <CommandInput onClick={handleVisualizeCommandClicked} />
       </Section>
       <Section>
-        <VisualizeCommand commands={commands} options={controlConfig} clipboard={clipboard}/>
+        <VisualizeCommand commands={commands} clipboard={clipboard} />
       </Section>
       <Section>
-        <Controls data={controlConfig} onChange={handleControlChanged} onClipboardClick={handleClipboardClicked}/>
+        <Controls onClipboardClick={handleClipboardClicked} />
       </Section>
     </React.Fragment>
   );

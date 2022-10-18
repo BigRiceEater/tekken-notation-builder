@@ -14,7 +14,7 @@ import { Button } from "antd";
 import { controlConfigState } from "../store";
 import { useRecoilValue } from "recoil";
 
-const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
+const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
   const [commandsImage, setCommandsImage] = useState(null);
   const controlConfig = useRecoilValue(controlConfigState); 
 
@@ -25,7 +25,7 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
   };
 
   const renderCommand = (cmd) => {
-    return <Command icon={cmd} options={options} />;
+    return <Command icon={cmd} options={controlConfig} />;
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
     }
   });
 
-  const { whiteBackgroundChecked } = controlConfig;
+  const { whiteBackgroundChecked, biggerCommandsChecked } = controlConfig;
 
   return (
     <React.Fragment>
@@ -68,7 +68,7 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
                 <ComboSeperator
                   key={idx}
                   invertColor={whiteBackgroundChecked}
-                  bigger={options.biggerCommands}
+                  bigger={biggerCommandsChecked}
                 />
               );
               break;

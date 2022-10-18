@@ -5,10 +5,10 @@ import Checkbox from "./control-checkbox";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { controlConfigState } from "../store";
 
-const Controls = ({ data, onChange, onClipboardClick }) => {
+const Controls = ({ onClipboardClick }) => {
   const [showClipboardButton, setShowClipboardButton] = useState(false);
   const [controlConfig, setControlConfig] = useRecoilState(controlConfigState);
-  
+
   useEffect(() => {
     const isMobile = window.innerWidth <= 576;
     setShowClipboardButton(!isMobile);
@@ -20,7 +20,7 @@ const Controls = ({ data, onChange, onClipboardClick }) => {
     })
   }
 
-  const { whiteBackgroundChecked } = controlConfig;
+  const { whiteBackgroundChecked, biggerCommandsChecked } = controlConfig;
 
 
   return (
@@ -39,9 +39,9 @@ const Controls = ({ data, onChange, onClipboardClick }) => {
       </Checkbox>
 
       <Checkbox
-        controlName="biggerCommands"
-        checked={data.biggerCommands}
-        onChange={onChange}>
+        controlName="biggerCommandsChecked"
+        checked={biggerCommandsChecked}
+        onChange={handleControlConfigChanged}>
         Bigger Commands
       </Checkbox>
     </Space>
