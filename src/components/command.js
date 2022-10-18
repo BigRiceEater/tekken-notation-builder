@@ -24,7 +24,7 @@ const Command = ({ icon }) => {
 
   try {
     if (icon === "error") {
-      return <ErrorCommand cmd={icon} options={appOptions} />;
+      return <ErrorCommand cmd={icon} />;
     } else {
       return (
         <img
