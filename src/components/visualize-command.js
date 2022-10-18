@@ -11,12 +11,12 @@ import { toBlob } from "html-to-image";
 
 import { Button } from "antd";
 
-import { controlConfigState } from "../store";
+import { appOptionsStore, appOptionKey } from "../store/app-options";
 import { useRecoilValue } from "recoil";
 
 const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
   const [commandsImage, setCommandsImage] = useState(null);
-  const controlConfig = useRecoilValue(controlConfigState); 
+  const appOptions = useRecoilValue(appOptionsStore); 
 
   const SP_CMD = {
     qcf: ["d", "df", "f"],
@@ -25,7 +25,7 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
   };
 
   const renderCommand = (cmd) => {
-    return <Command icon={cmd} options={controlConfig} />;
+    return <Command icon={cmd} options={appOptions} />;
   };
 
   useEffect(() => {
@@ -45,7 +45,11 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
     }
   });
 
-  const { whiteBackgroundChecked, biggerCommandsChecked } = controlConfig;
+  const { whiteBackground, biggerCommands } = appOptionKey;
+  const {
+    [whiteBackground]: whiteBackgroundChecked,
+    [biggerCommands]: biggerCommandsChecked,
+  } = appOptions;
 
   return (
     <React.Fragment>
