@@ -9,9 +9,9 @@ import { sanitize } from "../util/commands";
 import * as htmlToImage from "html-to-image";
 import { toBlob } from "html-to-image";
 
-import {Button} from "antd"
+import { Button } from "antd";
 
-const VisualizeCommand = ({ commands = [], options = {}, clipboard = {}}) => {
+const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
   const [commandsImage, setCommandsImage] = useState(null);
 
   const SP_CMD = {
@@ -25,30 +25,21 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {}}) => {
   };
 
   useEffect(() => {
-    if (clipboard.triggered){
-      const commandsContainer = document.getElementById('commands-container');
-      htmlToImage.toBlob(commandsContainer).then(blob =>{
-        navigator.clipboard.write([
-          new window.ClipboardItem({
-            'image/png' : blob
-          })
-        ]).then(()=>{
-          clipboard.done();
-        })
-      })
+    if (clipboard.triggered) {
+      const commandsContainer = document.getElementById("commands-container");
+      htmlToImage.toBlob(commandsContainer).then((blob) => {
+        navigator.clipboard
+          .write([
+            new window.ClipboardItem({
+              "image/png": blob,
+            }),
+          ])
+          .then(() => {
+            clipboard.done();
+          });
+      });
     }
   });
-
-  async function toClipboardAsync(){
-    const commandsContainer = document.getElementById('commands-container');
-    htmlToImage.toBlob(commandsContainer).then(async blob =>{
-      await navigator.clipboard.write([
-        new window.ClipboardItem({
-          'image/png' : blob
-        })
-      ])
-    })
-  }
 
   return (
     <React.Fragment>
@@ -76,7 +67,7 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {}}) => {
               );
               break;
             default:
-              return renderCommand(command);
+              return <div key={idx}>{renderCommand(command)}</div>;
           }
         })}
       </div>
