@@ -7,7 +7,7 @@ import ComboSeperator from "./combo-seperator";
 import { sanitize } from "../util/commands";
 
 import * as htmlToImage from "html-to-image";
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
+import { toBlob } from "html-to-image";
 
 import {Button} from "antd"
 
@@ -25,15 +25,7 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
   };
 
   useEffect(() => {
-    // const imageContainer = document.getElementById("image-container");
-    // const commandsContainer = document.getElementById("commands-container");
-    // const oldImage = document.getElementById("commands-as-image");
-    // htmlToImage.toPng(commandsContainer, { pixelRatio: 1 }).then((dataUrl) => {
-    //   // const img = new Image();
-    //   // img.src = dataUrl;
-    //   // imageContainer.replaceChild(img,oldImage);
-    //   setCommandsImage(dataUrl);
-    // });
+
   });
 
   async function toClipboardAsync(){
@@ -77,10 +69,6 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
           }
         })}
       </div>
-      {/* <div id="image-container" style={styles.imageContainer}>
-        <img id="commands-as-image" src={commandsImage} />
-      </div> */}
-      <Button onClick={async () => await toClipboardAsync()}>Clipboard</Button>
     </React.Fragment>
   );
 };
