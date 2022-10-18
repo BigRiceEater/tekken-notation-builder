@@ -2,16 +2,26 @@ import React, { useEffect, useState } from "react";
 import { Button, Space } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
 import Checkbox from "./control-checkbox";
-
+import { useRecoilState, useRecoilValue } from "recoil";
+import { controlConfigState } from "../store";
 
 const Controls = ({ data, onChange, onClipboardClick }) => {
-
-  const [showClipboardButton , setShowClipboardButton] = useState(false)
-
-  useEffect(()=>{
-    const isMobile = window.innerWidth <= 576 ;
+  const [showClipboardButton, setShowClipboardButton] = useState(false);
+  const [controlConfig, setControlConfig] = useRecoilState(controlConfigState);
+  
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 576;
     setShowClipboardButton(!isMobile);
-  })
+  });
+
+  const handleControlConfigChanged = ({controlName, value}) =>{
+    setControlConfig( prev => {
+      return ({...prev, [controlName] : value})
+    })
+  }
+
+  const { whiteBackgroundChecked } = controlConfig;
+
 
   return (
     <Space>
@@ -23,8 +33,8 @@ const Controls = ({ data, onChange, onClipboardClick }) => {
       )}
       <Checkbox
         controlName="whiteBackgroundChecked"
-        checked={data.whiteBackgroundChecked}
-        onChange={onChange}>
+        checked={whiteBackgroundChecked}
+        onChange={handleControlConfigChanged}>
         White Background
       </Checkbox>
 

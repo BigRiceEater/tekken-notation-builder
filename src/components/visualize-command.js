@@ -11,8 +11,12 @@ import { toBlob } from "html-to-image";
 
 import { Button } from "antd";
 
+import { controlConfigState } from "../store";
+import { useRecoilValue } from "recoil";
+
 const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
   const [commandsImage, setCommandsImage] = useState(null);
+  const controlConfig = useRecoilValue(controlConfigState); 
 
   const SP_CMD = {
     qcf: ["d", "df", "f"],
@@ -41,13 +45,15 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
     }
   });
 
+  const { whiteBackgroundChecked } = controlConfig;
+
   return (
     <React.Fragment>
       <div
         id="commands-container"
         style={{
           ...styles.container,
-          background: options.whiteBackgroundChecked ? "white" : grey[2],
+          background: whiteBackgroundChecked ? "white" : grey[2],
         }}>
         {commands.map((command, idx) => {
           switch (command) {
@@ -61,7 +67,7 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {} }) => {
               return (
                 <ComboSeperator
                   key={idx}
-                  invertColor={options.whiteBackgroundChecked}
+                  invertColor={whiteBackgroundChecked}
                   bigger={options.biggerCommands}
                 />
               );
