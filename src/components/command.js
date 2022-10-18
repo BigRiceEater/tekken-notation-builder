@@ -1,6 +1,6 @@
 import ErrorCommand from "./error-command";
 import { useRecoilValue } from "recoil";
-import { appOptionsStore, appOptionKey } from "../store/app-options";
+import { appOptionsStore } from "../store/app-options";
 
 // https://github.com/facebook/create-react-app/issues/9831#issuecomment-716063951
 /* 
@@ -17,10 +17,7 @@ const Command = ({ icon }) => {
 
   const appOptions = useRecoilValue(appOptionsStore);
 
-  const { biggerCommands } = appOptionKey;
-  const {
-    [biggerCommands]: biggerCommandsChecked,
-  } = appOptions;
+  const { biggerCommands } = appOptions;
 
   try {
     if (icon === "error") {
@@ -28,7 +25,7 @@ const Command = ({ icon }) => {
     } else {
       return (
         <img
-          style={{ width: biggerCommandsChecked ? 64 : 32 }}
+          style={{ width: biggerCommands ? 64 : 32 }}
           src={require(`../assets/${icon}.svg`)}
         />
       );

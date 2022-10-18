@@ -11,7 +11,7 @@ import { toBlob } from "html-to-image";
 
 import { Button } from "antd";
 
-import { appOptionsStore, appOptionKey } from "../store/app-options";
+import { appOptionsStore } from "../store/app-options";
 import { useRecoilValue } from "recoil";
 
 const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
@@ -45,11 +45,7 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
     }
   });
 
-  const { whiteBackground, biggerCommands } = appOptionKey;
-  const {
-    [whiteBackground]: whiteBackgroundChecked,
-    [biggerCommands]: biggerCommandsChecked,
-  } = appOptions;
+  const { whiteBackground, biggerCommands } = appOptions;
 
   return (
     <React.Fragment>
@@ -57,7 +53,7 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
         id="commands-container"
         style={{
           ...styles.container,
-          background: whiteBackgroundChecked ? "white" : grey[2],
+          background: whiteBackground ? "white" : grey[2],
         }}>
         {commands.map((command, idx) => {
           switch (command) {
@@ -71,8 +67,8 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
               return (
                 <ComboSeperator
                   key={idx}
-                  invertColor={whiteBackgroundChecked}
-                  bigger={biggerCommandsChecked}
+                  invertColor={whiteBackground}
+                  bigger={biggerCommands}
                 />
               );
               break;

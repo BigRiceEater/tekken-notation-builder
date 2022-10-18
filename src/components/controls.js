@@ -3,7 +3,7 @@ import { Button, Space } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
 import Checkbox from "./control-checkbox";
 import { useRecoilState } from "recoil";
-import { appOptionsStore, appOptionKey } from "../store/app-options";
+import { appOptionsStore } from "../store/app-options";
 
 const Controls = ({ onClipboardClick }) => {
   const [showClipboardButton, setShowClipboardButton] = useState(false);
@@ -20,12 +20,8 @@ const Controls = ({ onClipboardClick }) => {
     });
   };
 
-  const { whiteBackground, biggerCommands } = appOptionKey;
-  const {
-    [whiteBackground]: whiteBackgroundChecked,
-    [biggerCommands]: biggerCommandsChecked,
-  } = appOptions;
-
+  const { whiteBackground, biggerCommands } = appOptions;
+  
   return (
     <Space>
       {showClipboardButton && (
@@ -35,15 +31,15 @@ const Controls = ({ onClipboardClick }) => {
           onClick={onClipboardClick}></Button>
       )}
       <Checkbox
-        controlName={whiteBackground}
-        checked={whiteBackgroundChecked}
+        controlName="whiteBackground"
+        checked={whiteBackground}
         onChange={handleControlConfigChanged}>
         White Background
       </Checkbox>
 
       <Checkbox
-        controlName={biggerCommands}
-        checked={biggerCommandsChecked}
+        controlName="biggerCommands"
+        checked={biggerCommands}
         onChange={handleControlConfigChanged}>
         Bigger Commands
       </Checkbox>
