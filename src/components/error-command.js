@@ -4,7 +4,7 @@ const ErrorCommand = ({ cmd, options }) => {
   return (
     <WarningTwoTone
       twoToneColor="#eb2f96"
-      style={{ fontSize: options.biggerCommands ? 64 : 32 }}
+      style={{padding: "0px 2px" ,fontSize: options.biggerCommands ? 64 : 32 }}
     />
   );
 };
