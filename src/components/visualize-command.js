@@ -33,7 +33,6 @@ const VisualizeCommand = ({ commands = [], options = {}, clipboard = {}}) => {
             'image/png' : blob
           })
         ]).then(()=>{
-          console.log('done')
           clipboard.done();
         })
       })
