@@ -11,7 +11,7 @@ import { toBlob } from "html-to-image";
 
 import {Button} from "antd"
 
-const VisualizeCommand = ({ commands = [], options = {} }) => {
+const VisualizeCommand = ({ commands = [], options = {}, clipboard = {}}) => {
   const [commandsImage, setCommandsImage] = useState(null);
 
   const SP_CMD = {
@@ -25,7 +25,19 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
   };
 
   useEffect(() => {
-
+    if (clipboard.triggered){
+      const commandsContainer = document.getElementById('commands-container');
+      htmlToImage.toBlob(commandsContainer).then(blob =>{
+        navigator.clipboard.write([
+          new window.ClipboardItem({
+            'image/png' : blob
+          })
+        ]).then(()=>{
+          console.log('done')
+          clipboard.done();
+        })
+      })
+    }
   });
 
   async function toClipboardAsync(){
