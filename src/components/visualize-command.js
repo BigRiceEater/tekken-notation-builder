@@ -34,6 +34,17 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
     });
   });
 
+  function toClipboard(){
+    const commandsContainer = document.getElementById('commands-container');
+    htmlToImage.toBlob(commandsContainer).then(blob =>{
+      navigator.clipboard.write([
+        new ClipboardItem({
+          'image/png' : blob
+        })
+      ])
+    })
+  }
+
   return (
     <React.Fragment>
       <div
