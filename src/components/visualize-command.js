@@ -9,6 +9,8 @@ import { sanitize } from "../util/commands";
 import * as htmlToImage from "html-to-image";
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 
+import {Button} from "antd"
+
 const VisualizeCommand = ({ commands = [], options = {} }) => {
   const [commandsImage, setCommandsImage] = useState(null);
 
@@ -23,22 +25,22 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
   };
 
   useEffect(() => {
-    const imageContainer = document.getElementById("image-container");
-    const commandsContainer = document.getElementById("commands-container");
-    const oldImage = document.getElementById("commands-as-image");
-    htmlToImage.toPng(commandsContainer, { pixelRatio: 1 }).then((dataUrl) => {
-      // const img = new Image();
-      // img.src = dataUrl;
-      // imageContainer.replaceChild(img,oldImage);
-      setCommandsImage(dataUrl);
-    });
+    // const imageContainer = document.getElementById("image-container");
+    // const commandsContainer = document.getElementById("commands-container");
+    // const oldImage = document.getElementById("commands-as-image");
+    // htmlToImage.toPng(commandsContainer, { pixelRatio: 1 }).then((dataUrl) => {
+    //   // const img = new Image();
+    //   // img.src = dataUrl;
+    //   // imageContainer.replaceChild(img,oldImage);
+    //   setCommandsImage(dataUrl);
+    // });
   });
 
-  function toClipboard(){
+  async function toClipboardAsync(){
     const commandsContainer = document.getElementById('commands-container');
-    htmlToImage.toBlob(commandsContainer).then(blob =>{
-      navigator.clipboard.write([
-        new ClipboardItem({
+    htmlToImage.toBlob(commandsContainer).then(async blob =>{
+      await navigator.clipboard.write([
+        new window.ClipboardItem({
           'image/png' : blob
         })
       ])
@@ -75,9 +77,10 @@ const VisualizeCommand = ({ commands = [], options = {} }) => {
           }
         })}
       </div>
-      <div id="image-container" style={styles.imageContainer}>
+      {/* <div id="image-container" style={styles.imageContainer}>
         <img id="commands-as-image" src={commandsImage} />
-      </div>
+      </div> */}
+      <Button onClick={async () => await toClipboardAsync()}>Clipboard</Button>
     </React.Fragment>
   );
 };
