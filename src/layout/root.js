@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { Layout, Row, Divider, Typography } from "antd";
-import { ToastContainer } from "react-toastify";
+import { AppToastContainer } from "../components/toast-container";
 import "react-toastify/dist/ReactToastify.css";
 import packageData from "../../package.json";
 
@@ -25,18 +25,7 @@ const Root = () => {
           </Hyperlink>
         </Divider>
       </Footer>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <AppToastContainer/>
     </Layout>
   );
 };
