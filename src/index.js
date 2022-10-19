@@ -1,16 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RecoilRoot } from "recoil";
 import 'antd/dist/antd.css';
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+
+import { RecoilRoot } from "recoil";
+
 import {
   createHashRouter as createRouter,
   RouterProvider,
   Route,
 } from "react-router-dom";
+
+import Root from "./layout/root";
 import Home from "./routes/home";
-import Root from "./routes/root";
 import ErrorPage from "./routes/error-page";
 
 const router = createRouter([
