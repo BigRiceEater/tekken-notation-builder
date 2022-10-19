@@ -1,16 +1,12 @@
-import { useState } from "react";
 import { Drawer } from "antd";
 
-export const AppMenu = () => {
-
-  const [open, setOpen] = useState(true)
-
+export const AppMenu = ({open, onClose}) => {
   return (
     <Drawer
       title="Notation Builder"
       placement="left"
       minWidth={350}
-      onClose={()=> setOpen(false)}
+      onClose={onClose}
       open={open}></Drawer>
   );
 };
