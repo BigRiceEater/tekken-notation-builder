@@ -12,7 +12,7 @@ const Controls = ({ onClipboardClick }) => {
   useEffect(() => {
     const isMobile = window.innerWidth <= 576;
     setShowClipboardButton(!isMobile);
-  });
+  },[]);
 
   const handleAppOptionsChanged = ({ controlName, value }) => {
     setAppOptions((prev) => {
