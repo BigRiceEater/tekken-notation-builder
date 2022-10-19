@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 import { Layout, Row, Col, Divider } from "antd";
@@ -10,7 +9,6 @@ import Home from './routes/home'
 import {
   Routes,
   Route,
-  Link,
 } from "react-router-dom";
 
 const { Content, Footer } = Layout;
