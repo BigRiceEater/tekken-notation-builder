@@ -25,6 +25,7 @@ const Command = ({ icon }) => {
     } else {
       return (
         <img
+          alt={icon}
           style={{ width: biggerCommands ? 64 : 32 }}
           src={require(`../assets/${icon}.svg`)}
         />
