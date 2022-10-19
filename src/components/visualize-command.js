@@ -11,7 +11,7 @@ import { appOptionsStore } from "../store/app-options";
 import { useRecoilValue } from "recoil";
 
 const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
-  const appOptions = useRecoilValue(appOptionsStore); 
+  const appOptions = useRecoilValue(appOptionsStore);
 
   const SP_CMD = {
     qcf: ["d", "df", "f"],
@@ -53,11 +53,11 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
         {commands.map((command, idx) => {
           switch (command) {
             case "qcf":
-              return;
-              <React.Fragment key={idx}>
-                {SP_CMD.qcf.map((cmd) => renderCommand(cmd))}
-              </React.Fragment>;
-              break;
+              return (
+                <React.Fragment key={idx}>
+                  {SP_CMD.qcf.map((cmd) => renderCommand(cmd))}
+                </React.Fragment>
+              );
             case ">":
               return (
                 <ComboSeperator
@@ -66,7 +66,6 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
                   bigger={biggerCommands}
                 />
               );
-              break;
             default:
               return <div key={idx}>{renderCommand(command)}</div>;
           }
