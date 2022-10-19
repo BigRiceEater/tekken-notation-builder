@@ -1,11 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
-import { Layout, Row, Divider, Typography } from "antd";
+import { Layout, Row, Typography } from "antd";
 import { AppToastContainer } from "../components/toast-container";
+import { AppFooter } from "../components/footer";
 import "react-toastify/dist/ReactToastify.css";
-import packageData from "../../package.json";
 
-const { Content, Footer } = Layout;
-const { Link: Hyperlink } = Typography;
+const { Content } = Layout;
 
 const Root = () => {
   return (
@@ -15,17 +14,8 @@ const Root = () => {
           <Outlet />
         </Row>
       </Content>
-      <Footer>
-        <Divider orientation="center" plain>
-          Version {packageData.version} :{" "}
-          <Hyperlink
-            href="https://github.com/BigRiceEater/tekken-notation-builder/issues"
-            target="blank">
-            Report an issue
-          </Hyperlink>
-        </Divider>
-      </Footer>
-      <AppToastContainer/>
+      <AppFooter />
+      <AppToastContainer />
     </Layout>
   );
 };
@@ -37,8 +27,7 @@ const styles = {
     paddingBottom: 0,
     paddingLeft: 24,
     paddingRight: 24,
-  },
-  footer: {},
+  }
 };
 
 export default Root;
