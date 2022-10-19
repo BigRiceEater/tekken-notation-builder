@@ -1,4 +1,3 @@
-const { default: Command } = require('../components/command');
 const { CommandName } = require('./command-name')
 
 exports.sanitize = function(cmdstring){
