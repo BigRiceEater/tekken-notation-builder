@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Input, Button } from "antd";
 
-const { TextArea } = Input;
-
 const CommandInput = ({ onClick }) => {
   const [commandNotation, setCommandNotation] = useState("");
   return (
