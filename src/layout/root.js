@@ -9,7 +9,7 @@ const { Content, Header } = Layout;
 
 const Root = () => {
   return (
-    <Layout>
+    <Layout style={{minHeight : "100%"}}>
       <AppHeader />
       <Content style={styles.container}>
         <Row justify="center" gutter={[16, 16]}>
