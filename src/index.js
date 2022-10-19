@@ -9,7 +9,6 @@ import { RecoilRoot } from "recoil";
 import {
   createHashRouter as createRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
 
 import Root from "./layout/root";
