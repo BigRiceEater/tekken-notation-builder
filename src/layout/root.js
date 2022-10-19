@@ -2,7 +2,6 @@ import { Link, Outlet } from "react-router-dom";
 import { Layout, Row, Typography } from "antd";
 import { AppToastContainer } from "../components/toast-container";
 import { AppFooter } from "../components/footer";
-import "react-toastify/dist/ReactToastify.css";
 
 const { Content } = Layout;
 
