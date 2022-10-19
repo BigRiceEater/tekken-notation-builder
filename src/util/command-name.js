@@ -18,6 +18,8 @@ export const CommandName = {
   onetwothreefour: "1+2+3+4",
   onethreefour: "1+3+4",
 
+  neutral : "n",
+
   forward: "f",
   fowardhold: "fp",
   back: "b",
