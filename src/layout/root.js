@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { Layout, Row, Typography } from "antd";
+import { Layout, Row } from "antd";
 import { AppToastContainer } from "../components/toast-container";
 import { AppFooter } from "../components/footer";
 
