@@ -1,9 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import { Layout, Row } from "antd";
 import { Space, Button } from "antd";
-import { AppToastContainer } from "../components/toast-container";
-import { AppFooter } from "../components/footer";
-import { AppMenu } from "../components/menu";
+import { AppToastContainer } from "./toast-container";
+import { AppFooter } from "./footer";
+import { AppMenu } from "./menu";
 
 const { Content, Header } = Layout;
 
