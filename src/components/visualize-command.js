@@ -4,7 +4,6 @@ import { purple, grey } from "@ant-design/colors";
 import Command from "./command";
 import ComboSeperator from "./combo-seperator";
 
-import * as htmlToImage from "html-to-image";
 import { toBlob } from "html-to-image";
 
 import { appOptionsStore } from "../store/app-options";
@@ -26,7 +25,7 @@ const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
   useEffect(() => {
     if (clipboard.triggered) {
       const commandsContainer = document.getElementById("commands-container");
-      htmlToImage.toBlob(commandsContainer).then((blob) => {
+      toBlob(commandsContainer).then((blob) => {
         navigator.clipboard
           .write([
             new window.ClipboardItem({
