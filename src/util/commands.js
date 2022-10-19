@@ -6,7 +6,7 @@ exports.sanitize = function(cmdstring){
   // artificially add the limit symbol for pseudo command so we can split properly without user writing this themselves
   const addLimiterForAngleSymbol = dataNoSpaces.replace(/>/g, ",>,");
   // split into array by . and , because '>' is actually a pseudo command we can't split by this symbol
-  const splitCommands = addLimiterForAngleSymbol.split(/[\.,]+/);
+  const splitCommands = addLimiterForAngleSymbol.split(/[.,]+/);
   // remove all empty elements
   const sanitizedCommands = splitCommands.filter((c) => c);
 
