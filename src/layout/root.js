@@ -2,8 +2,9 @@ import { Link, Outlet } from "react-router-dom";
 import { Layout, Row } from "antd";
 import { AppToastContainer } from "../components/toast-container";
 import { AppFooter } from "../components/footer";
+import { AppMenu } from '../components/menu'
 
-const { Content } = Layout;
+const { Content,Header } = Layout;
 
 const Root = () => {
   return (
@@ -14,7 +15,10 @@ const Root = () => {
         </Row>
       </Content>
       <AppFooter />
+
+      <AppMenu/>
       <AppToastContainer />
+      
     </Layout>
   );
 };
