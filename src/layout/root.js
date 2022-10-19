@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Layout, Row } from "antd";
 import { Space, Button } from "antd";
 import { AppToastContainer } from "./toast-container";
+import { AppHeader } from "./header";
 import { AppFooter } from "./footer";
 import { AppMenu } from "./menu";
 
@@ -10,11 +11,7 @@ const { Content, Header } = Layout;
 const Root = () => {
   return (
     <Layout>
-      <Header style={{ backgroundColor: "white" }}>
-        <Space>
-          <Button>Menu</Button>
-        </Space>
-      </Header>
+      <AppHeader />
       <Content style={styles.container}>
         <Row justify="center" gutter={[16, 16]}>
           <Outlet />
