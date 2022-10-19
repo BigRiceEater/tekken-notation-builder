@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { purple, grey } from "@ant-design/colors";
 
 import Command from "./command";
 import ComboSeperator from "./combo-seperator";
 
-import { sanitize } from "../util/commands";
-
 import * as htmlToImage from "html-to-image";
 import { toBlob } from "html-to-image";
-
-import { Button } from "antd";
 
 import { appOptionsStore } from "../store/app-options";
 import { useRecoilValue } from "recoil";
 
 const VisualizeCommand = ({ commands = [], clipboard = {} }) => {
-  const [commandsImage, setCommandsImage] = useState(null);
   const appOptions = useRecoilValue(appOptionsStore); 
 
   const SP_CMD = {
