@@ -4,7 +4,6 @@ import { Space, Button } from "antd";
 import { AppToastContainer } from "./toast-container";
 import { AppHeader } from "./header";
 import { AppFooter } from "./footer";
-import { AppMenu } from "./menu";
 
 const { Content, Header } = Layout;
 
@@ -19,7 +18,6 @@ const Root = () => {
       </Content>
       <AppFooter />
 
-      <AppMenu />
       <AppToastContainer />
     </Layout>
   );
