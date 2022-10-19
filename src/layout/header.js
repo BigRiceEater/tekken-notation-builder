@@ -8,7 +8,7 @@ export const AppHeader = () => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <>
-      <Header style={{ backgroundColor: "white" }}>
+      <Header style={{ backgroundColor: "white", padding: "0px 24px" }}>
         <Space>
           <Button
             type="text"
