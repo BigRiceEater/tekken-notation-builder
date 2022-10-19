@@ -5,7 +5,7 @@ export const AppMenu = ({open, onClose}) => {
     <Drawer
       title="Notation Builder"
       placement="left"
-      minWidth={350}
+      width={256}
       onClose={onClose}
       open={open}></Drawer>
   );
