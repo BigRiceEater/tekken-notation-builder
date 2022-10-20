@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AppMenu } from "./menu";
+import { AppDrawer } from "./drawer";
 import { Layout, Space, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 const { Header } = Layout;
@@ -16,7 +16,7 @@ export const AppHeader = () => {
             onClick={() => setOpenMenu(true)}></Button>
         </Space>
       </Header>
-      <AppMenu open={openMenu} onClose={() => setOpenMenu(false)} />
+      <AppDrawer open={openMenu} onClose={() => setOpenMenu(false)} />
     </>
   );
 };

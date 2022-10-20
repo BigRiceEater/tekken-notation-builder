@@ -1,6 +1,6 @@
 import { Drawer } from "antd";
 
-export const AppMenu = ({open, onClose}) => {
+export const AppDrawer = ({open, onClose}) => {
   return (
     <Drawer
       title="Notation Builder"
