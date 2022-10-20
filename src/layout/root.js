@@ -1,19 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Layout, Row } from "antd";
-import { AppToastContainer } from "../components/toast-container";
-import { AppFooter } from "../components/footer";
+import { Space, Button } from "antd";
+import { AppToastContainer } from "./toast-container";
+import { AppHeader } from "./header";
+import { AppFooter } from "./footer";
 
-const { Content } = Layout;
+const { Content, Header } = Layout;
 
 const Root = () => {
   return (
-    <Layout style={styles.container}>
-      <Content>
+    <Layout style={{minHeight : "100%"}}>
+      <AppHeader />
+      <Content style={styles.container}>
         <Row justify="center" gutter={[16, 16]}>
           <Outlet />
         </Row>
       </Content>
       <AppFooter />
+
       <AppToastContainer />
     </Layout>
   );
@@ -26,7 +30,7 @@ const styles = {
     paddingBottom: 0,
     paddingLeft: 24,
     paddingRight: 24,
-  }
+  },
 };
 
 export default Root;

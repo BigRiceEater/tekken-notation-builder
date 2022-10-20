@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
@@ -13,6 +13,7 @@ import {
 
 import Root from "./layout/root";
 import Home from "./routes/home";
+import { ChangeLog } from "./routes/changelog";
 import ErrorPage from "./routes/error-page";
 
 const router = createRouter([
@@ -20,7 +21,10 @@ const router = createRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-    children: [{ path: "/", element: <Home /> }],
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/changelog", element: <ChangeLog /> },
+    ],
   },
 ]);
 
