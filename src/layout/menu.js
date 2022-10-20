@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import { Menu } from 'antd';
 
 export const AppMenu = ()=>{
 
   const items = [
-    { label : 'Home', key:"home"},
-    { label : "Changelog", key:"changelog"}
+    { label : (<Link to="">Home</Link>) , key:"home"},
+    { label : (<Link to="changelog">Changelog</Link>), key:"changelog"}
   ]
 
   return (
