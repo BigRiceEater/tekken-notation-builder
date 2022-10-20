@@ -1,4 +1,5 @@
 import { Drawer } from "antd";
+import { AppMenu } from "./menu";
 
 export const AppDrawer = ({open, onClose}) => {
   return (
@@ -7,6 +8,8 @@ export const AppDrawer = ({open, onClose}) => {
       placement="left"
       width={256}
       onClose={onClose}
-      open={open}></Drawer>
+      open={open}>
+        <AppMenu />
+      </Drawer>
   );
 };
