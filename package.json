@@ -16,6 +16,7 @@
     "antd": "^4.23.4",
     "craco": "0.0.3",
     "html-to-image": "^1.10.8",
+    "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.8",
     "react-dom": "^18.2.0",

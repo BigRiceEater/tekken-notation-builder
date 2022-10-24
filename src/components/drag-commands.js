@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DraggableArea } from "react-draggable-tags";
 import { Row, Col, Space, Button } from "antd";
+import { nanoid } from 'nanoid'
 
 export const DragCommands = () => {
 
@@ -40,7 +41,7 @@ export const DragCommands = () => {
             return (
               <Button
                 key={id}
-                onClick={() => setBuilderTags((prev) => [...prev, tag])}>
+                onClick={() => setBuilderTags((prev) => [...prev, {id : nanoid(), content}])}>
                 {content}
               </Button>
             );
