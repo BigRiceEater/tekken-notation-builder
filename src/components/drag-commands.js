@@ -1,59 +1,50 @@
 import { useState } from "react";
-import { DraggableAreasGroup } from "react-draggable-tags";
-import { Row, Col } from "antd";
+import { DraggableArea } from "react-draggable-tags";
+import { Row, Col, Space, Button } from "antd";
 
 export const DragCommands = () => {
-  const group = new DraggableAreasGroup();
-  const BuilderArea = group.addArea("builder");
-  const ToolsetArea = group.addArea("toolset");
 
-  const availableTags = [{ id: 1, content: "down" }, {id : 2, content : "up"}];
+  const availableTags = [
+    { id: 1, content: "down" },
+    { id: 2, content: "up" },
+  ];
 
   const [builderTags, setBuilderTags] = useState([]);
-  const [toolsetTags, setToolsetTags] = useState(availableTags);
-
 
   const renderTag = ({ tag }) => <div style={styles.tags}>{tag.content}</div>;
 
-  const handleDragged = (tags, {fromArea, toArea}) => {
-    const { id : from } = fromArea;
-    if (from === "toolset"){
-      setBuilderTags(tags);
-    }
-    else if (from === "builder"){
-      setBuilderTags(tags);
-    }
-  }
-
-  const handleBuilderDragged = (tags, {fromArea, toArea}) => {
+  const handleBuilderDragged = (tags, { fromArea, toArea }) => {
     setBuilderTags(tags);
-  }
-
-  const handleToolsetDragged = (tags, {fromArea, toArea}) => {
-    const { id : to } = toArea;
-    if (to === "toolset"){
-      setToolsetTags(availableTags)
-    }
-  }
+  };
 
   return (
     <>
       <Row gutter={[0, 16]}>
         <Col span={24}>
-          <BuilderArea
+          <DraggableArea
             style={styles.dragArea}
             tags={builderTags}
             render={renderTag}
-            onChange={handleBuilderDragged}
+            
           />
         </Col>
-        <Col span={24}>
-          <ToolsetArea
-            style={styles.dragArea}
-            tags={toolsetTags}
-            render={renderTag}
-            onChange={handleToolsetDragged}
-          />
+        <Col
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+          }}
+          span={24}>
+          {availableTags.map((tag) => {
+            const { id, content } = tag;
+            return (
+              <Button
+                key={id}
+                onClick={() => setBuilderTags((prev) => [...prev, tag])}>
+                {content}
+              </Button>
+            );
+          })}
         </Col>
       </Row>
     </>
@@ -63,20 +54,20 @@ export const DragCommands = () => {
 const styles = {
   tags: {
     display: "flex",
-    justifyContent : "center",
+    justifyContent: "center",
     color: "black",
     backgroundColor: "white",
     padding: 5,
-    margin : 5,
+    margin: 5,
     borderRadius: 8,
     border: `2px solid black`,
-    minWidth : 64
-    
+    minWidth: 64,
   },
   dragArea: {
     backgroundColor: "white",
     padding: 16,
     minHeight: 88,
+    width: "100%",
     borderRadius: 8,
   },
 };
