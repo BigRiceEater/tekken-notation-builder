@@ -3,8 +3,6 @@ import { useRecoilState } from 'recoil';
 import { Layout, Space, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { grey } from "@ant-design/colors"
-
-import { AppDrawer } from "./drawer";
 import { appMenuStore } from "../store/frontend";
 
 const { Header } = Layout;
@@ -21,7 +19,6 @@ export const AppHeader = () => {
             onClick={() => setOpenMenu(true)}></Button>
         </Space>
       </Header>
-      <AppDrawer />
     </>
   );
 };

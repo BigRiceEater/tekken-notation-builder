@@ -17,6 +17,7 @@
     "craco": "0.0.3",
     "html-to-image": "^1.10.8",
     "react": "^18.2.0",
+    "react-burger-menu": "^3.0.8",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
@@ -29,7 +30,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "changelog" : "changelog-to-react-component",
+    "changelog": "changelog-to-react-component",
     "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
