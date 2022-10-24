@@ -21,4 +21,11 @@ const styles = {
   bmBurgerButton: {
     display: "none",
   },
+  bmCrossButton: {
+    height: '24px',
+    width: '24px'
+  },
+  bmCross: {
+    background: '#bdc3c7'
+  },
 };
