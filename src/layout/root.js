@@ -9,17 +9,22 @@ const { Content, Header } = Layout;
 
 const Root = () => {
   return (
-    <Layout style={{minHeight : "100%"}}>
-      <AppHeader />
-      <Content style={styles.container}>
-        <Row justify="center" gutter={[16, 16]}>
-          <Outlet />
-        </Row>
-      </Content>
-      <AppFooter />
+    <div id="outer-container">
+      <Layout style={{ minHeight: "100%" }}>
+        <AppHeader />
+        
+            <main id="page-wrap">
+        <Content style={styles.container}>
+          <Row justify="center" gutter={[16, 16]}>
+              <Outlet />
+          </Row>
+        </Content>
+        <AppFooter />
+            </main>
 
-      <AppToastContainer />
-    </Layout>
+        <AppToastContainer />
+      </Layout>
+    </div>
   );
 };
 

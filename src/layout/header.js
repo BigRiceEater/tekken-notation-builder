@@ -4,7 +4,7 @@ import { Layout, Space, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { grey } from "@ant-design/colors"
 
-import { AppDrawer } from "./drawer";
+import { AppDrawer } from "./drawer-v2";
 import { appMenuStore } from "../store/frontend";
 
 const { Header } = Layout;
