@@ -8,7 +8,7 @@ export const AppDrawer = () => {
   return (
     <Drawer
       isOpen={openMenu}
-      onClose={setOpenMenu(false)}
+      onClose={()=> setOpenMenu(false)}
       styles={styles}
       pageWrapId={"page-wrap"}
       outerContainerId={"outer-container"}>
