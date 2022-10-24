@@ -10,9 +10,9 @@ const { Content, Header } = Layout;
 
 const Root = () => {
   return (
-    <div id="outer-container">
+    <div style={{height:"100%"}} id="outer-container">
       <AppDrawer />
-      <main id="page-wrap">
+      <main style={{height: "100%"}} id="page-wrap">
         <Layout style={{ minHeight: "100%" }}>
           <AppHeader />
 
