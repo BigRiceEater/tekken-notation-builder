@@ -10,13 +10,9 @@ export const DragCommands = () => {
     { id: 2, content: "up" },
   ];
 
-  const [builderTags, setBuilderTags] = useState([]);
+  const [commandTags, setCommandTags] = useState([]);
 
   const renderTag = ({ tag }) => <div style={styles.tags}>{tag.content}</div>;
-
-  const handleBuilderDragged = (tags, { fromArea, toArea }) => {
-    setBuilderTags(tags);
-  };
 
   return (
     <>
@@ -24,9 +20,9 @@ export const DragCommands = () => {
         <Col span={24}>
           <DraggableArea
             style={styles.dragArea}
-            tags={builderTags}
+            tags={commandTags}
             render={renderTag}
-            
+            onChange={tags => setCommandTags(tags)}
           />
         </Col>
         <Col
@@ -41,7 +37,7 @@ export const DragCommands = () => {
             return (
               <Button
                 key={id}
-                onClick={() => setBuilderTags((prev) => [...prev, {id : nanoid(), content}])}>
+                onClick={() => setCommandTags((prev) => [...prev, {id : nanoid(), content}])}>
                 {content}
               </Button>
             );
