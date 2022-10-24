@@ -25,6 +25,17 @@ export const DragCommands = () => {
     }
   }
 
+  const handleBuilderDragged = (tags, {fromArea, toArea}) => {
+    setBuilderTags(tags);
+  }
+
+  const handleToolsetDragged = (tags, {fromArea, toArea}) => {
+    const { id : to } = toArea;
+    if (to === "toolset"){
+      setToolsetTags(availableTags)
+    }
+  }
+
   return (
     <>
       <Row gutter={[0, 16]}>
@@ -33,7 +44,7 @@ export const DragCommands = () => {
             style={styles.dragArea}
             tags={builderTags}
             render={renderTag}
-            onChange={handleDragged}
+            onChange={handleBuilderDragged}
           />
         </Col>
         <Col span={24}>
@@ -41,7 +52,7 @@ export const DragCommands = () => {
             style={styles.dragArea}
             tags={toolsetTags}
             render={renderTag}
-            onChange={handleDragged}
+            onChange={handleToolsetDragged}
           />
         </Col>
       </Row>
