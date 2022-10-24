@@ -13,6 +13,7 @@ import {
 
 import Root from "./layout/root";
 import Home from "./routes/home";
+import { BasicBuilder } from "./routes/basic-builder";
 import { ChangeLog } from "./routes/changelog";
 import ErrorPage from "./routes/error-page";
 
@@ -23,6 +24,7 @@ const router = createRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/basicbuilder", element: <BasicBuilder /> },
       { path: "/changelog", element: <ChangeLog /> },
     ],
   },

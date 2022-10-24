@@ -6,6 +6,7 @@ import { appMenuStore } from "../store/frontend";
 import { useEffect } from "react";
 import {
   AppleOutlined,
+  CaretRightFilled,
   HomeOutlined,
   UnorderedListOutlined,
 } from "@ant-design/icons";
@@ -30,6 +31,14 @@ export const AppMenu = () => {
         </Link>
       ),
       key: "/",
+    },
+    {
+      label: (
+        <Link to="basicbuilder">
+          <AppLink icon={<CaretRightFilled />} label="Basic Builder" />
+        </Link>
+      ),
+      key: "/basicbuilder",
     },
     {
       label: (
