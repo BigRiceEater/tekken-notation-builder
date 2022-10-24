@@ -12,5 +12,5 @@ export const AppMenu = () => {
     { label: <Link to="changelog">Changelog</Link>, key: "changelog" },
   ];
 
-  return <Menu items={items} onClick={()=> setOpenMenu(false)}/>;
+  return <Menu style={{height: "100%"}} items={items} onClick={()=> setOpenMenu(false)}/>;
 };
