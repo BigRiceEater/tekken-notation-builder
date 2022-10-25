@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Section from "../layout/section";
 import VisualizeCommand from "../components/visualize-command";
-import { DragCommands } from "../components/draggable-builder/drag-commands";
+import { DragCommands } from "../components/draggable-builder";
 
 export const BasicBuilder = () => {
   const [commands, setCommands] = useState([]);

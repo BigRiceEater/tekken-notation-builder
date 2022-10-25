@@ -4,21 +4,13 @@ import { Row, Col, Space, Button } from "antd";
 import { nanoid } from "nanoid";
 import Command from "../command";
 import { CommandName } from "../../util/command-name";
+import { BuilderPallete } from "./pallete";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // Droppable = the area
 // Draggable = the item
 
-const buildAvailableTags = () => {
-  return Object.values(CommandName).map((icon) => ({
-    id: nanoid(),
-    icon: icon,
-    content: <Command icon={icon} />,
-  }));
-};
-
 export const DragCommands = () => {
-  const availableTags = buildAvailableTags();
 
   const [commandTags, setCommandTags] = useState([]);
   const [commands, setCommands] = useState([]);
@@ -57,6 +49,10 @@ export const DragCommands = () => {
   const getListStyle = (isDraggingOver) => ({
     background: isDraggingOver ? "lightblue" : "lightgrey"
   });
+
+  const handlePalleteClicked = (item) =>{
+    setCommands(prev => [...prev, item])
+  }
 
   return (
     <Row gutter={[0, 16]}>
@@ -102,19 +98,7 @@ export const DragCommands = () => {
           justifyContent: "space-around",
         }}
         span={24}>
-        {availableTags.map((tag) => {
-          const { id, icon, content } = tag;
-          return (
-            <Button
-              key={id}
-              onClick={() => {
-                setCommandTags((prev) => [...prev, { id: nanoid(), content }]);
-                setCommands((prev) => [...prev, { id: nanoid(), icon }]);
-              }}>
-              {content}
-            </Button>
-          );
-        })}
+        <BuilderPallete onClick={handlePalleteClicked} />
       </Col>
     </Row>
   );
