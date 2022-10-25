@@ -35,7 +35,7 @@ export const DragCommands = () => {
     const endIndex = result.destination.index;
 
     const newCommands = Array.from(commands);
-    const [removed] = result.splice(startIndex, 1);
+    const [removed] = newCommands.splice(startIndex, 1);
     newCommands.splice(endIndex, 0, removed);
 
     setCommands(newCommands);
