@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { DraggableArea } from "react-draggable-tags";
 import { Row, Col, Space, Button } from "antd";
-import { nanoid } from 'nanoid'
+import { nanoid } from "nanoid";
+import Command from "./command";
+import { CommandName } from "../util/command-name";
+
+const buildAvailableTags = () => {
+  return Object.values(CommandName).map((icon) => ({
+    id: nanoid(),
+    content: <Command icon={icon} />
+  }));
+};
 
 export const DragCommands = () => {
-
-  const availableTags = [
-    { id: 1, content: "down" },
-    { id: 2, content: "up" },
-  ];
+  const availableTags = buildAvailableTags();
 
   const [commandTags, setCommandTags] = useState([]);
 
-  const renderTag = ({ tag }) => <div style={styles.tags}>{tag.content}</div>;
+  const renderTag = ({ tag }) => tag.content;
 
   return (
     <>
@@ -22,7 +27,7 @@ export const DragCommands = () => {
             style={styles.dragArea}
             tags={commandTags}
             render={renderTag}
-            onChange={tags => setCommandTags(tags)}
+            onChange={(tags) => setCommandTags(tags)}
           />
         </Col>
         <Col
@@ -37,7 +42,9 @@ export const DragCommands = () => {
             return (
               <Button
                 key={id}
-                onClick={() => setCommandTags((prev) => [...prev, {id : nanoid(), content}])}>
+                onClick={() =>
+                  setCommandTags((prev) => [...prev, { id : nanoid(), content }])
+                }>
                 {content}
               </Button>
             );
