@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { DraggableArea } from "react-draggable-tags";
 import { Row, Col, Space, Button } from "antd";
 import { nanoid } from "nanoid";
 import Command from "../command";
