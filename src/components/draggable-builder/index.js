@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Row, Col, Space, Button } from "antd";
-import { nanoid } from "nanoid";
-import Command from "../command";
+import { Row, Col, Space } from "antd";
 import { CommandName } from "../../util/command-name";
+import Command from "../command";
 import { BuilderPallete } from "./pallete";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
