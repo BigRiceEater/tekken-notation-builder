@@ -12,7 +12,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const buildAvailableTags = () => {
   return Object.values(CommandName).map((icon) => ({
     id: nanoid(),
-    icon : icon,
+    icon: icon,
     content: <Command icon={icon} />,
   }));
 };
@@ -44,77 +44,83 @@ export const DragCommands = () => {
   const grid = 8;
   const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
-    userSelect: 'none',
+    userSelect: "none",
     padding: grid * 2,
     margin: `0 ${grid}px 0 0`,
-  
+
     // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
-  
+    background: isDragging ? "lightgreen" : "grey",
+
     // styles we need to apply on draggables
     ...draggableStyle,
   });
-  
-  const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? 'lightblue' : 'lightgrey',
-    display: 'flex',
+
+  const getListStyle = (isDraggingOver) => ({
+    background: isDraggingOver ? "lightblue" : "lightgrey",
+    display: "flex",
     padding: grid,
-    overflow: 'auto',
+    overflow: "auto",
   });
 
   return (
     <Row gutter={[0, 16]}>
-        <Col span={24}>
+      <Col span={24}>
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable
-            droppableId="droppable"
+            droppableId="our-droppable"
             style={styles.dragArea}
             direction="horizontal">
             {(provided, snapshot) => (
-              <div ref={provided.innerRef} {...provided.droppableProps} style={{...styles.dragArea,...getListStyle(snapshot.isDraggingOver)}}>
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                style={{
+                  ...styles.dragArea,
+                  ...getListStyle(snapshot.isDraggingOver),
+                }}>
                 {commands.map((cmd, idx) => (
                   <Draggable key={cmd.id} draggableId={cmd.id} index={idx}>
                     {(provided, snapshot) => (
-                      <span
+                      <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
-                        {...provided.dragHandleProps}>
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(snapshot.isDragging,provided.draggableProps.style)}
+                        >
                         <Command icon={cmd.icon} />
-                      </span>
+                      </div>
                     )}
                   </Draggable>
                 ))}
+                {provided.placeholder}
               </div>
             )}
           </Droppable>
         </DragDropContext>
-        </Col>
+      </Col>
 
-        <Col
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-          }}
-          span={24}>
-          {availableTags.map((tag) => {
-            const { id, icon, content } = tag;
-            return (
-              <Button
-                key={id}
-                onClick={() => {
-                  setCommandTags((prev) => [
-                    ...prev,
-                    { id: nanoid(), content },
-                  ]);
-                  setCommands((prev) => [...prev, {id: nanoid(), icon}]);
-                }}>
-                {content}
-              </Button>
-            );
-          })}
-        </Col>
-      </Row>
+      <Col
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}
+        span={24}>
+        {availableTags.map((tag) => {
+          const { id, icon, content } = tag;
+          return (
+            <Button
+              key={id}
+              onClick={() => {
+                setCommandTags((prev) => [...prev, { id: nanoid(), content }]);
+                setCommands((prev) => [...prev, { id: nanoid(), icon }]);
+              }}>
+              {content}
+            </Button>
+          );
+        })}
+      </Col>
+    </Row>
   );
 };
 
