@@ -63,9 +63,9 @@ export const DragCommands = () => {
   });
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-      <Row gutter={[0, 16]}>
+    <Row gutter={[0, 16]}>
         <Col span={24}>
+        <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable
             droppableId="droppable"
             style={styles.dragArea}
@@ -87,6 +87,7 @@ export const DragCommands = () => {
               </div>
             )}
           </Droppable>
+        </DragDropContext>
         </Col>
 
         <Col
@@ -114,7 +115,6 @@ export const DragCommands = () => {
           })}
         </Col>
       </Row>
-    </DragDropContext>
   );
 };
 
