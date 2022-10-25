@@ -5,11 +5,14 @@ import { nanoid } from "nanoid";
 import Command from "./command";
 import { CommandName } from "../util/command-name";
 
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+// Droppable = the area
+// Draggable = the item
 
 const buildAvailableTags = () => {
   return Object.values(CommandName).map((icon) => ({
     id: nanoid(),
+    icon : icon,
     content: <Command icon={icon} />,
   }));
 };
@@ -42,13 +45,29 @@ export const DragCommands = () => {
     <DragDropContext onDragEnd={handleDragEnd}>
       <Row gutter={[0, 16]}>
         <Col span={24}>
-          <DraggableArea
+          <Droppable
+            droppableId="droppable"
             style={styles.dragArea}
-            tags={commandTags}
-            render={renderTag}
-            onChange={(tags) => setCommandTags(tags)}
-          />
+            direction="horizontal">
+            {(provided, snapshot) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {commands.map((cmd, idx) => (
+                  <Draggable key={cmd.id} draggableId={cmd.id} index={idx}>
+                    {(provided, snapshot) => (
+                      <span
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}>
+                        <Command icon={cmd.icon} />
+                      </span>
+                    )}
+                  </Draggable>
+                ))}
+              </div>
+            )}
+          </Droppable>
         </Col>
+
         <Col
           style={{
             display: "flex",
@@ -57,13 +76,17 @@ export const DragCommands = () => {
           }}
           span={24}>
           {availableTags.map((tag) => {
-            const { id, content } = tag;
+            const { id, icon, content } = tag;
             return (
               <Button
                 key={id}
-                onClick={() =>
-                  setCommandTags((prev) => [...prev, { id: nanoid(), content }])
-                }>
+                onClick={() => {
+                  setCommandTags((prev) => [
+                    ...prev,
+                    { id: nanoid(), content },
+                  ]);
+                  setCommands((prev) => [...prev, {id: nanoid(), icon}]);
+                }}>
                 {content}
               </Button>
             );
