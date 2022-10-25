@@ -55,10 +55,7 @@ export const DragCommands = () => {
   });
 
   const getListStyle = (isDraggingOver) => ({
-    background: isDraggingOver ? "lightblue" : "lightgrey",
-    display: "flex",
-    padding: grid,
-    overflow: "auto",
+    background: isDraggingOver ? "lightblue" : "lightgrey"
   });
 
   return (
@@ -124,22 +121,14 @@ export const DragCommands = () => {
 };
 
 const styles = {
-  tags: {
-    display: "flex",
-    justifyContent: "center",
-    color: "black",
-    backgroundColor: "white",
-    padding: 5,
-    margin: 5,
-    borderRadius: 8,
-    border: `2px solid black`,
-    minWidth: 64,
-  },
   dragArea: {
+    display: "flex",
     backgroundColor: "white",
     padding: 16,
     minHeight: 88,
     width: "100%",
     borderRadius: 8,
+    alignItems: "center",
+    flexWrap: "wrap",
   },
 };
