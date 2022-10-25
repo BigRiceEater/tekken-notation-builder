@@ -12,10 +12,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export const DragCommands = () => {
 
-  const [commandTags, setCommandTags] = useState([]);
   const [commands, setCommands] = useState([]);
-
-  const renderTag = ({ tag }) => tag.content;
 
   const handleDragEnd = (result) => {
     // dropped outside droppable area
