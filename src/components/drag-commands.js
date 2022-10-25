@@ -45,7 +45,8 @@ export const DragCommands = () => {
   const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
     userSelect: "none",
-    
+    height : "100%",
+
     // change background colour if dragging
     background: isDragging ? "lightgreen" : "#00000000",
 
